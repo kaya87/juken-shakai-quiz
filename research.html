@@ -59,86 +59,87 @@
   .wrap {
     max-width: 800px;
     margin: 0 auto;
-    padding: 56px 24px 96px;
+    padding: 32px 18px 64px;
   }
 
   h1, h2, h3 { font-family: "Shippori Mincho", serif; text-wrap: balance; margin: 0; }
 
   header.hero {
-    margin-bottom: 56px;
+    margin-bottom: 40px;
   }
 
   .eyebrow {
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     color: var(--accent);
     font-weight: 700;
     text-transform: uppercase;
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
-    margin: 10px 0 14px;
+    margin: 8px 0 12px;
+    line-height: 1.35;
   }
 
   .lede {
-    font-size: 1rem;
+    font-size: 0.94rem;
     color: var(--text-muted);
     max-width: 62ch;
   }
 
   .meta-row {
     display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    font-size: 0.85rem;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 18px;
+    font-size: 0.82rem;
     color: var(--text-muted);
   }
 
   .meta-row strong { color: var(--text); }
 
-  section { margin-bottom: 64px; }
+  section { margin-bottom: 44px; }
 
   .section-head {
     display: flex;
     align-items: baseline;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 10px;
+    margin-bottom: 6px;
   }
 
   .section-num {
     font-family: "Shippori Mincho", serif;
-    font-size: 0.95rem;
+    font-size: 0.88rem;
     color: var(--accent);
     font-weight: 700;
   }
 
   h2 {
-    font-size: 1.35rem;
+    font-size: 1.15rem;
     color: var(--primary);
     font-weight: 700;
   }
 
   .section-note {
     color: var(--text-muted);
-    font-size: 0.92rem;
-    margin: 6px 0 28px;
+    font-size: 0.86rem;
+    margin: 6px 0 20px;
     max-width: 64ch;
   }
 
   /* --- timeline --- */
   .timeline {
     position: relative;
-    padding-left: 28px;
+    padding-left: 22px;
     border-left: 2px solid var(--border);
   }
 
   .era {
     position: relative;
-    padding-bottom: 34px;
+    padding-bottom: 26px;
   }
 
   .era:last-child { padding-bottom: 0; }
@@ -146,10 +147,10 @@
   .era::before {
     content: "";
     position: absolute;
-    left: -34px;
+    left: -27px;
     top: 6px;
-    width: 10px;
-    height: 10px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
     background: var(--primary);
     border: 2px solid var(--bg);
@@ -192,7 +193,7 @@
     background: var(--accent-soft);
     border: 1px solid var(--border);
     border-radius: 14px;
-    padding: 28px 26px;
+    padding: 18px 16px;
   }
 
   .basics-grid {
@@ -263,7 +264,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 18px 20px;
+    padding: 14px 16px;
     box-shadow: var(--shadow);
   }
 
@@ -357,18 +358,34 @@
 
   /* --- sources --- */
   .sources {
-    columns: 2;
+    columns: 1;
     column-gap: 32px;
-    font-size: 0.86rem;
+    font-size: 0.84rem;
+    padding-left: 20px;
   }
 
   .sources li { margin-bottom: 8px; break-inside: avoid; }
   .sources a { color: var(--primary-soft); }
 
-  @media (max-width: 620px) {
-    .wrap { padding: 40px 18px 72px; }
-    h1 { font-size: 1.6rem; }
-    .sources { columns: 1; }
+  /* --- desktop enhancement (mobile is the default above) --- */
+  @media (min-width: 720px) {
+    .wrap { padding: 56px 24px 96px; }
+    header.hero { margin-bottom: 56px; }
+    .eyebrow { font-size: 0.78rem; letter-spacing: 0.12em; }
+    h1 { font-size: 2rem; margin: 10px 0 14px; }
+    .lede { font-size: 1rem; }
+    .meta-row { flex-direction: row; gap: 20px; font-size: 0.85rem; }
+    section { margin-bottom: 64px; }
+    .section-head { gap: 12px; margin-bottom: 8px; }
+    .section-num { font-size: 0.95rem; }
+    h2 { font-size: 1.35rem; }
+    .section-note { font-size: 0.92rem; margin: 6px 0 28px; }
+    .timeline { padding-left: 28px; }
+    .era { padding-bottom: 34px; }
+    .era::before { left: -34px; width: 10px; height: 10px; }
+    .basics-panel { padding: 28px 26px; }
+    .set-card { padding: 18px 20px; }
+    .sources { columns: 2; font-size: 0.86rem; }
   }
 
   footer {
