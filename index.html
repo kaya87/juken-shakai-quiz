@@ -3,82 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>中学受験 社会 一問一答クイズ</title>
-<link rel="stylesheet" href="style.css">
+<title>中学受験リアル日記 ラボ</title>
+<meta name="description" content="小6息子の中学受験の記録から生まれた、無料の学習ツール置き場。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --bg: #e9ede8;
+    --surface: #fbfcf9;
+    --surface-alt: #dde3d6;
+    --text: #1e2420;
+    --text-muted: #57604f;
+    --primary: #2c3e63;
+    --primary-soft: #4a5d8a;
+    --accent: #8a6d2f;
+    --accent-soft: #eadfc2;
+    --border: #cbd2c2;
+    --shadow: 0 1px 2px rgba(30, 36, 32, 0.06), 0 4px 16px rgba(30, 36, 32, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14181a;
+      --surface: #1b2123;
+      --surface-alt: #232b27;
+      --text: #e6e9e1;
+      --text-muted: #99a392;
+      --primary: #90a8da;
+      --primary-soft: #b7c6ea;
+      --accent: #d4b673;
+      --accent-soft: #3a331f;
+      --border: #303935;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2 { font-family: "Shippori Mincho", serif; text-wrap: balance; margin: 0; }
+
+  /* --- mobile-first base layout --- */
+  .wrap {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 40px 20px 56px;
+  }
+
+  header.hero {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 10px 0 14px;
+  }
+
+  .lede {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 46ch;
+    margin: 0 auto;
+  }
+
+  nav.link-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px 18px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  .link-card:active { transform: scale(0.99); }
+
+  .link-icon {
+    font-size: 1.7rem;
+    line-height: 1;
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-soft);
+    border-radius: 12px;
+  }
+
+  .link-body { flex: 1; min-width: 0; }
+
+  .link-title {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 3px;
+  }
+
+  .link-desc {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+  }
+
+  .link-arrow {
+    font-size: 1.1rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .coming-soon {
+    margin-top: 6px;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  footer {
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  footer a { color: var(--primary-soft); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* --- desktop enhancement --- */
+  @media (min-width: 720px) {
+    .wrap { padding: 72px 24px 80px; }
+    h1 { font-size: 2.1rem; }
+    .lede { font-size: 1rem; }
+    .link-card { padding: 22px 24px; }
+  }
+</style>
 </head>
 <body>
-<div id="app">
+<div class="wrap">
 
-  <header class="app-header">
-    <h1>中学受験 社会クイズ</h1>
-    <p class="subtitle">科目と単元を選んで、学んだ内容をアウトプットしよう</p>
+  <header class="hero">
+    <div class="eyebrow">Family Project</div>
+    <h1>中学受験リアル日記 ラボ</h1>
+    <p class="lede">
+      小6息子の中学受験を記録するブログから生まれた、無料の学習ツール置き場です。
+    </p>
   </header>
 
-  <main id="screen-home" class="screen">
-    <section class="about-box">
-      <p>
-        動画で歴史を学んでも、「覚えたつもり」で終わってしまいがち。
-        このクイズは、インプットした内容をその場でアウトプットして、
-        本当に定着しているかを確認するために作りました。無料・登録不要でどなたでも使えます。
-      </p>
-      <p class="about-link">
-        作った経緯は<a href="https://ka8kfc.hatenablog.com/" target="_blank" rel="noopener">中学受験リアル日記のブログ</a>で書いています。
-      </p>
-      <p class="about-link">
-        調べた頻出用語のリサーチは<a href="research.html">こちら</a>。
-      </p>
-    </section>
-    <div id="subject-tabs" class="subject-tabs"></div>
-    <button id="btn-open-random" class="random-entry">🎲 ランダム出題で練習する</button>
-    <div id="era-list" class="era-grid"></div>
-  </main>
+  <nav class="link-cards">
+    <a class="link-card" href="quiz.html">
+      <span class="link-icon">📝</span>
+      <span class="link-body">
+        <span class="link-title">社会クイズ(歴史・地理・公民)</span>
+        <span class="link-desc">動画で学んだ内容を、その場でアウトプット。無料・登録不要。</span>
+      </span>
+      <span class="link-arrow">›</span>
+    </a>
 
-  <main id="screen-random-setup" class="screen hidden">
-    <div class="quiz-topbar">
-      <button id="btn-random-back" class="btn-text">← 単元を選び直す</button>
-    </div>
-    <h2 class="quiz-title">🎲 ランダム出題の範囲を選ぶ</h2>
-    <div class="random-setup-box">
-      <div class="random-setup-row">
-        <button id="btn-select-all" class="btn-text">全て選択</button>
-        <button id="btn-select-none" class="btn-text">全て解除</button>
-      </div>
-      <div id="unit-checklist" class="unit-checklist"></div>
-      <p class="random-setup-label">出題数</p>
-      <div id="count-buttons" class="count-buttons"></div>
-      <button id="btn-start-random" class="btn-primary">この条件で始める</button>
-    </div>
-  </main>
+    <a class="link-card" href="https://ka8kfc.hatenablog.com/" target="_blank" rel="noopener">
+      <span class="link-icon">📔</span>
+      <span class="link-body">
+        <span class="link-title">中学受験リアル日記(ブログ)</span>
+        <span class="link-desc">偏差値40台からのスタート。日々の記録を正直に公開中。</span>
+      </span>
+      <span class="link-arrow">›</span>
+    </a>
 
-  <main id="screen-quiz" class="screen hidden">
-    <div class="quiz-topbar">
-      <button id="btn-back" class="btn-text">← 単元を選び直す</button>
-      <div id="progress" class="progress"></div>
-    </div>
-    <h2 id="quiz-title" class="quiz-title"></h2>
-    <div id="question-box" class="question-box">
-      <p id="question-text" class="question-text"></p>
-      <div id="choices" class="choices"></div>
-      <p id="feedback" class="feedback hidden"></p>
-      <button id="btn-next" class="btn-primary hidden">次の問題へ</button>
-    </div>
-  </main>
+    <a class="link-card" href="research.html">
+      <span class="link-icon">📜</span>
+      <span class="link-body">
+        <span class="link-title">頻出用語リサーチ</span>
+        <span class="link-desc">クイズを作るために調べた、中学受験社会の頻出テーマまとめ。</span>
+      </span>
+      <span class="link-arrow">›</span>
+    </a>
+  </nav>
 
-  <main id="screen-result" class="screen hidden">
-    <h2>結果発表</h2>
-    <p id="result-summary" class="result-summary"></p>
-    <div id="result-wrong" class="result-wrong"></div>
-    <div class="result-actions">
-      <button id="btn-retry" class="btn-primary">もう一度</button>
-      <button id="btn-home" class="btn-secondary">単元選択にもどる</button>
-    </div>
-  </main>
+  <p class="coming-soon">理科など、今後もツールを増やしていく予定です。</p>
+
+  <footer>
+    個人・家族で運営している非営利のサイトです。<br>
+    更新情報は <a href="https://x.com/jukennopap" target="_blank" rel="noopener">X (@jukennopap)</a> でも発信しています。
+  </footer>
 
 </div>
-<script src="history-questions.js"></script>
-<script src="geography-questions.js"></script>
-<script src="civics-questions.js"></script>
-<script src="subjects.js"></script>
-<script src="app.js"></script>
 </body>
 </html>

@@ -387,10 +387,14 @@
     padding: 12px 24px;
   }
 
-  .site-nav a {
-    display: inline-block;
+  .site-nav-inner {
+    display: flex;
+    justify-content: space-between;
     max-width: 800px;
     margin: 0 auto;
+  }
+
+  .site-nav a {
     color: var(--primary);
     font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
     font-size: 0.9rem;
@@ -401,7 +405,7 @@
   .site-nav a:hover { text-decoration: underline; }
 </style>
 
-<nav class="site-nav"><a href="index.html">← クイズに戻る</a></nav>
+<nav class="site-nav"><div class="site-nav-inner"><a href="index.html">← ホーム</a><a href="quiz.html">クイズに戻る →</a></div></nav>
 
 <div class="wrap">
 
