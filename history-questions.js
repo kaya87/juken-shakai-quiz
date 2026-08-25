@@ -1,5 +1,5 @@
 // 中学受験 社会(歴史) 復習用クイズ問題データ
-const QUIZ_DATA = [
+const HISTORY_DATA = [
   {
     id: "jomon-yayoi",
     title: "縄文・弥生時代",

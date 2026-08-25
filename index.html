@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>中学受験 社会(歴史)一問一答クイズ</title>
+<title>中学受験 社会 一問一答クイズ</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div id="app">
 
   <header class="app-header">
-    <h1>中学受験 社会(歴史)クイズ</h1>
-    <p class="subtitle">時代を選んで、動画で学んだ内容をアウトプットしよう</p>
+    <h1>中学受験 社会クイズ</h1>
+    <p class="subtitle">科目と単元を選んで、学んだ内容をアウトプットしよう</p>
   </header>
 
   <main id="screen-home" class="screen">
@@ -28,12 +28,13 @@
         調べた頻出用語のリサーチは<a href="research.html">こちら</a>。
       </p>
     </section>
+    <div id="subject-tabs" class="subject-tabs"></div>
     <div id="era-list" class="era-grid"></div>
   </main>
 
   <main id="screen-quiz" class="screen hidden">
     <div class="quiz-topbar">
-      <button id="btn-back" class="btn-text">← 時代を選び直す</button>
+      <button id="btn-back" class="btn-text">← 単元を選び直す</button>
       <div id="progress" class="progress"></div>
     </div>
     <h2 id="quiz-title" class="quiz-title"></h2>
@@ -56,7 +57,10 @@
   </main>
 
 </div>
-<script src="questions.js"></script>
+<script src="history-questions.js"></script>
+<script src="geography-questions.js"></script>
+<script src="civics-questions.js"></script>
+<script src="subjects.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

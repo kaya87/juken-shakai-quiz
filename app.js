@@ -1,4 +1,4 @@
-// 中学受験 社会(歴史)クイズ アプリロジック
+// 中学受験 社会クイズ アプリロジック(歴史・地理・公民 共通)
 (function () {
   const STORAGE_KEY = "juken-shakai-quiz-best-scores";
 
@@ -8,6 +8,7 @@
     result: document.getElementById("screen-result"),
   };
 
+  const subjectTabsEl = document.getElementById("subject-tabs");
   const eraListEl = document.getElementById("era-list");
   const quizTitleEl = document.getElementById("quiz-title");
   const progressEl = document.getElementById("progress");
@@ -20,6 +21,8 @@
   const resultWrongEl = document.getElementById("result-wrong");
   const btnRetry = document.getElementById("btn-retry");
   const btnHome = document.getElementById("btn-home");
+
+  let currentSubject = SUBJECTS.find((s) => s.data.length > 0) || SUBJECTS[0];
 
   let state = {
     era: null,
@@ -38,11 +41,16 @@
     }
   }
 
-  function saveBestScore(eraId, score, total) {
+  function scoreKey(subjectId, eraId) {
+    return `${subjectId}:${eraId}`;
+  }
+
+  function saveBestScore(subjectId, eraId, score, total) {
     const best = loadBestScores();
-    const prev = best[eraId];
+    const key = scoreKey(subjectId, eraId);
+    const prev = best[key];
     if (!prev || score > prev.score) {
-      best[eraId] = { score, total };
+      best[key] = { score, total };
       localStorage.setItem(STORAGE_KEY, JSON.stringify(best));
     }
   }
@@ -63,13 +71,31 @@
     return a;
   }
 
+  function renderSubjectTabs() {
+    subjectTabsEl.innerHTML = "";
+    SUBJECTS.forEach((subject) => {
+      const btn = document.createElement("button");
+      btn.className =
+        "subject-tab" + (subject.id === currentSubject.id ? " active" : "");
+      btn.textContent = subject.label;
+      btn.disabled = subject.data.length === 0;
+      if (subject.data.length === 0) btn.title = "準備中";
+      btn.addEventListener("click", () => {
+        currentSubject = subject;
+        renderSubjectTabs();
+        renderEraList();
+      });
+      subjectTabsEl.appendChild(btn);
+    });
+  }
+
   function renderEraList() {
     const best = loadBestScores();
     eraListEl.innerHTML = "";
-    QUIZ_DATA.forEach((era) => {
+    currentSubject.data.forEach((era) => {
       const card = document.createElement("button");
       card.className = "era-card";
-      const b = best[era.id];
+      const b = best[scoreKey(currentSubject.id, era.id)];
       card.innerHTML = `
         <div>
           <div class="era-name">${era.title}</div>
@@ -92,7 +118,7 @@
       wrongList: [],
       answered: false,
     };
-    quizTitleEl.textContent = era.title;
+    quizTitleEl.textContent = `${currentSubject.label} / ${era.title}`;
     showScreen("quiz");
     renderQuestion();
   }
@@ -156,7 +182,7 @@
   function finishQuiz() {
     const total = state.order.length;
     const score = state.correctCount;
-    saveBestScore(state.era.id, score, total);
+    saveBestScore(currentSubject.id, state.era.id, score, total);
 
     resultSummaryEl.textContent = `${score} / ${total} 問正解`;
     resultWrongEl.innerHTML = "";
@@ -192,6 +218,7 @@
   });
   btnRetry.addEventListener("click", () => startQuiz(state.era));
 
+  renderSubjectTabs();
   renderEraList();
   showScreen("home");
 })();

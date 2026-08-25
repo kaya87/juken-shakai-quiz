@@ -47,6 +47,36 @@ body {
 
 .screen.hidden { display: none; }
 
+/* --- Subject tabs --- */
+.subject-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.subject-tab {
+  flex: 1;
+  padding: 10px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.subject-tab.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.subject-tab:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 /* --- Era selection --- */
 .era-grid {
   display: grid;
