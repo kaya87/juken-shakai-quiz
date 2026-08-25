@@ -1,0 +1,631 @@
+<title>中学受験歴史 頻出用語リサーチ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+
+  :root {
+    --bg: #e9ede8;
+    --surface: #fbfcf9;
+    --surface-alt: #dde3d6;
+    --text: #1e2420;
+    --text-muted: #57604f;
+    --primary: #2c3e63;
+    --primary-soft: #4a5d8a;
+    --accent: #8a6d2f;
+    --accent-soft: #eadfc2;
+    --border: #cbd2c2;
+    --shadow: 0 1px 2px rgba(30, 36, 32, 0.06), 0 4px 16px rgba(30, 36, 32, 0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #14181a;
+      --surface: #1b2123;
+      --surface-alt: #232b27;
+      --text: #e6e9e1;
+      --text-muted: #99a392;
+      --primary: #90a8da;
+      --primary-soft: #b7c6ea;
+      --accent: #d4b673;
+      --accent-soft: #3a331f;
+      --border: #303935;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 20px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #14181a;
+    --surface: #1b2123;
+    --surface-alt: #232b27;
+    --text: #e6e9e1;
+    --text-muted: #99a392;
+    --primary: #90a8da;
+    --primary-soft: #b7c6ea;
+    --accent: #d4b673;
+    --accent-soft: #3a331f;
+    --border: #303935;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+    line-height: 1.75;
+  }
+
+  .wrap {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+
+  h1, h2, h3 { font-family: "Shippori Mincho", serif; text-wrap: balance; margin: 0; }
+
+  header.hero {
+    margin-bottom: 56px;
+  }
+
+  .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 10px 0 14px;
+  }
+
+  .lede {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 62ch;
+  }
+
+  .meta-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .meta-row strong { color: var(--text); }
+
+  section { margin-bottom: 64px; }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .section-num {
+    font-family: "Shippori Mincho", serif;
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.35rem;
+    color: var(--primary);
+    font-weight: 700;
+  }
+
+  .section-note {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    margin: 6px 0 28px;
+    max-width: 64ch;
+  }
+
+  /* --- timeline --- */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+    border-left: 2px solid var(--border);
+  }
+
+  .era {
+    position: relative;
+    padding-bottom: 34px;
+  }
+
+  .era:last-child { padding-bottom: 0; }
+
+  .era::before {
+    content: "";
+    position: absolute;
+    left: -34px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 2px var(--border);
+  }
+
+  .era-range {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+  }
+
+  .era-title {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 2px 0 10px;
+  }
+
+  .term-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .term {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 5px 11px;
+    font-size: 0.86rem;
+    color: var(--text);
+    box-shadow: var(--shadow);
+  }
+
+  /* --- basics highlight --- */
+  .basics-panel {
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 26px;
+  }
+
+  .basics-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .basics-grid .term {
+    background: var(--surface);
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* --- year table --- */
+  .table-wrap { overflow-x: auto; border-radius: 12px; border: 1px solid var(--border); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    font-size: 0.92rem;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 600;
+    color: var(--primary);
+    background: var(--surface-alt);
+    font-size: 0.85rem;
+  }
+
+  td.year {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    color: var(--primary-soft);
+    white-space: nowrap;
+    width: 90px;
+  }
+
+  tr:last-child td { border-bottom: none; }
+
+  .footnote {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+  }
+
+  /* --- theme sets --- */
+  .set-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .set-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .set-card h3 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }
+
+  .set-card p {
+    margin: 0;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  /* --- caveat --- */
+  .caveat {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 22px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .caveat strong { color: var(--text); }
+
+  /* --- sources --- */
+  .sources {
+    columns: 2;
+    column-gap: 32px;
+    font-size: 0.86rem;
+  }
+
+  .sources li { margin-bottom: 8px; break-inside: avoid; }
+  .sources a { color: var(--primary-soft); }
+
+  @media (max-width: 620px) {
+    .wrap { padding: 40px 18px 72px; }
+    h1 { font-size: 1.6rem; }
+    .sources { columns: 1; }
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+
+  footer a { color: var(--primary-soft); }
+
+  /* --- site nav (added for site integration) --- */
+  .site-nav {
+    background: var(--surface-alt);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+  }
+
+  .site-nav a {
+    display: inline-block;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--primary);
+    font-family: "Zen Kaku Gothic New", "Hiragino Sans", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .site-nav a:hover { text-decoration: underline; }
+</style>
+
+<nav class="site-nav"><a href="index.html">← クイズに戻る</a></nav>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Research Memo</div>
+    <h1>中学受験 社会(歴史) 頻出用語リサーチ</h1>
+    <p class="lede">
+      息子の中学受験対策として作った復習クイズ
+      「<a href="https://kaya87.github.io/juken-shakai-quiz/" style="color:var(--primary)">社会(歴史)クイズ</a>」の
+      問題設計にあたり、どの用語・テーマが実際の入試で重視されているかをWeb調査した結果をまとめた。
+    </p>
+    <div class="meta-row">
+      <span><strong>調査日</strong> 2026-08-25</span>
+      <span><strong>対象</strong> まず押さえるべき基礎〜標準レベルの頻出テーマ</span>
+      <span><strong>方法</strong> Web検索(公開情報ベース)</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>時代別 最重要キーワード</h2></div>
+    <p class="section-note">縄文〜令和までの15時代を通史順に並べ、各時代で必ず押さえるべき用語をまとめた。</p>
+
+    <div class="timeline">
+
+      <div class="era">
+        <div class="era-range">〜前4世紀ごろ</div>
+        <div class="era-title">縄文時代</div>
+        <div class="term-row">
+          <span class="term">縄文土器</span><span class="term">たて穴住居</span><span class="term">貝塚</span><span class="term">狩猟・採集</span><span class="term">土偶</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">前4世紀〜3世紀ごろ</div>
+        <div class="era-title">弥生時代</div>
+        <div class="term-row">
+          <span class="term">稲作</span><span class="term">弥生土器</span><span class="term">高床倉庫</span><span class="term">卑弥呼</span><span class="term">邪馬台国</span><span class="term">金印(漢委奴国王)</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">3世紀後半〜7世紀</div>
+        <div class="era-title">古墳時代</div>
+        <div class="term-row">
+          <span class="term">前方後円墳(大仙古墳)</span><span class="term">大和政権</span><span class="term">渡来人</span><span class="term">埴輪</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">592〜710年</div>
+        <div class="era-title">飛鳥時代</div>
+        <div class="term-row">
+          <span class="term">聖徳太子</span><span class="term">十七条の憲法</span><span class="term">冠位十二階</span><span class="term">遣隋使</span><span class="term">法隆寺</span><span class="term">大化の改新</span><span class="term">大宝律令</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">710〜794年</div>
+        <div class="era-title">奈良時代</div>
+        <div class="term-row">
+          <span class="term">平城京</span><span class="term">聖武天皇</span><span class="term">東大寺・大仏</span><span class="term">正倉院</span><span class="term">墾田永年私財法</span><span class="term">遣唐使</span><span class="term">古事記・日本書紀</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">794〜1185年</div>
+        <div class="era-title">平安時代</div>
+        <div class="term-row">
+          <span class="term">平安京</span><span class="term">藤原道長・摂関政治</span><span class="term">源氏物語(紫式部)</span><span class="term">枕草子(清少納言)</span><span class="term">院政(白河上皇)</span><span class="term">平清盛</span><span class="term">壇ノ浦の戦い</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1185〜1333年</div>
+        <div class="era-title">鎌倉時代</div>
+        <div class="term-row">
+          <span class="term">源頼朝</span><span class="term">守護・地頭</span><span class="term">御成敗式目(北条泰時)</span><span class="term">執権政治</span><span class="term">元寇</span><span class="term">御恩と奉公</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1338〜1573年</div>
+        <div class="era-title">室町時代</div>
+        <div class="term-row">
+          <span class="term">足利尊氏・足利義満</span><span class="term">勘合貿易</span><span class="term">金閣</span><span class="term">足利義政</span><span class="term">銀閣</span><span class="term">応仁の乱</span><span class="term">下剋上</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">15世紀後半〜1603年</div>
+        <div class="era-title">戦国・安土桃山時代</div>
+        <div class="term-row">
+          <span class="term">織田信長</span><span class="term">桶狭間・長篠</span><span class="term">楽市楽座</span><span class="term">豊臣秀吉</span><span class="term">太閤検地・刀狩</span><span class="term">キリスト教伝来(ザビエル)</span><span class="term">鉄砲伝来</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1603〜1868年</div>
+        <div class="era-title">江戸時代</div>
+        <div class="term-row">
+          <span class="term">徳川家康・関ヶ原の戦い</span><span class="term">参勤交代</span><span class="term">鎖国</span><span class="term">元禄文化</span><span class="term">享保・寛政・天保の改革</span><span class="term">化政文化</span><span class="term">黒船来航(ペリー)</span><span class="term">大政奉還</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1868〜1912年</div>
+        <div class="era-title">明治時代</div>
+        <div class="term-row">
+          <span class="term">明治維新</span><span class="term">廃藩置県</span><span class="term">学制・徴兵令・地租改正</span><span class="term">大日本帝国憲法</span><span class="term">日清戦争・日露戦争</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1912〜1926年</div>
+        <div class="era-title">大正時代</div>
+        <div class="term-row">
+          <span class="term">第一次世界大戦</span><span class="term">大正デモクラシー</span><span class="term">米騒動</span><span class="term">普通選挙法</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1926〜1945年</div>
+        <div class="era-title">昭和時代(戦前)</div>
+        <div class="term-row">
+          <span class="term">満州事変</span><span class="term">日中戦争</span><span class="term">太平洋戦争</span><span class="term">終戦</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1945〜1989年</div>
+        <div class="era-title">昭和時代(戦後)</div>
+        <div class="term-row">
+          <span class="term">日本国憲法</span><span class="term">高度経済成長</span><span class="term">四大公害病</span><span class="term">東京オリンピック(1964)</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">1989年〜現在</div>
+        <div class="era-title">平成・令和</div>
+        <div class="term-row">
+          <span class="term">バブル崩壊</span><span class="term">東日本大震災(2011)</span><span class="term">令和(2019〜)</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語 トップ24</h2></div>
+    <p class="section-note">複数の調査結果で共通していたのは、「応用問題より先に、まず基礎キーワードの暗記を固めることが土台になる」という指摘。まずこの24項目の徹底が優先。</p>
+    <div class="basics-panel">
+      <div class="basics-grid">
+        <span class="term">卑弥呼</span>
+        <span class="term">聖徳太子・十七条の憲法</span>
+        <span class="term">大化の改新</span>
+        <span class="term">聖武天皇・東大寺の大仏</span>
+        <span class="term">藤原道長・摂関政治</span>
+        <span class="term">源氏物語・枕草子</span>
+        <span class="term">源頼朝・守護と地頭</span>
+        <span class="term">元寇</span>
+        <span class="term">足利義満・金閣</span>
+        <span class="term">足利義政・銀閣</span>
+        <span class="term">織田信長</span>
+        <span class="term">豊臣秀吉(太閤検地・刀狩)</span>
+        <span class="term">徳川家康・関ヶ原の戦い</span>
+        <span class="term">参勤交代・鎖国</span>
+        <span class="term">徳川吉宗・享保の改革</span>
+        <span class="term">松平定信・寛政の改革</span>
+        <span class="term">水野忠邦・天保の改革</span>
+        <span class="term">ペリー来航</span>
+        <span class="term">大政奉還・明治維新</span>
+        <span class="term">学制・徴兵令・地租改正</span>
+        <span class="term">大日本帝国憲法</span>
+        <span class="term">日清戦争・日露戦争</span>
+        <span class="term">満州事変〜太平洋戦争</span>
+        <span class="term">日本国憲法・高度経済成長</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>必須年号</h2></div>
+    <p class="section-note">中学受験でくり返し問われる代表的な年号。年代の並びそのものが歴史の流れの理解に直結するため、時系列で掲載。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>年</th><th>出来事</th></tr></thead>
+        <tbody>
+          <tr><td class="year">538</td><td>仏教伝来</td></tr>
+          <tr><td class="year">645</td><td>大化の改新</td></tr>
+          <tr><td class="year">710</td><td>平城京遷都</td></tr>
+          <tr><td class="year">794</td><td>平安京遷都</td></tr>
+          <tr><td class="year">894</td><td>遣唐使の停止</td></tr>
+          <tr><td class="year">1086</td><td>院政の開始</td></tr>
+          <tr><td class="year">1185</td><td>鎌倉幕府の成立(守護・地頭の設置)</td></tr>
+          <tr><td class="year">1274 / 1281</td><td>元寇(文永の役・弘安の役)</td></tr>
+          <tr><td class="year">1338</td><td>室町幕府の成立</td></tr>
+          <tr><td class="year">1467</td><td>応仁の乱</td></tr>
+          <tr><td class="year">1573</td><td>室町幕府の滅亡</td></tr>
+          <tr><td class="year">1600</td><td>関ヶ原の戦い</td></tr>
+          <tr><td class="year">1603</td><td>江戸幕府の成立</td></tr>
+          <tr><td class="year">1853</td><td>黒船来航(ペリー)</td></tr>
+          <tr><td class="year">1868</td><td>明治維新</td></tr>
+          <tr><td class="year">1871</td><td>廃藩置県</td></tr>
+          <tr><td class="year">1894</td><td>日清戦争</td></tr>
+          <tr><td class="year">1904</td><td>日露戦争</td></tr>
+          <tr><td class="year">1914</td><td>第一次世界大戦</td></tr>
+          <tr><td class="year">1931</td><td>満州事変</td></tr>
+          <tr><td class="year">1945</td><td>終戦</td></tr>
+          <tr><td class="year">1947</td><td>日本国憲法の施行</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="footnote">
+      鎌倉幕府の成立年は、近年の教科書では「1185年(守護・地頭の設置)」が主流だが、
+      従来の語呂合わせ「いい国つくろう1192年」も併記されることが多く、教材によって表記が揺れる点は要注意。
+    </p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>セットで問われる頻出テーマ</h2></div>
+    <p class="section-note">単発の用語よりも、いくつかをまとめて覚えさせる出題が定番になっているテーマ。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>江戸の三大改革</h3>
+        <p>享保の改革(徳川吉宗)／寛政の改革(松平定信)／天保の改革(水野忠邦)</p>
+      </div>
+      <div class="set-card">
+        <h3>明治の三大改革</h3>
+        <p>学制・徴兵令・地租改正</p>
+      </div>
+      <div class="set-card">
+        <h3>元禄文化 vs 化政文化</h3>
+        <p>元禄=上方中心の町人文化／化政=江戸中心の大衆文化</p>
+      </div>
+      <div class="set-card">
+        <h3>四大公害病</h3>
+        <p>水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそく</p>
+      </div>
+      <div class="set-card">
+        <h3>三種の神器</h3>
+        <p>白黒テレビ・洗濯機・冷蔵庫／新三種の神器(3C): 車・クーラー・カラーテレビ</p>
+      </div>
+      <div class="set-card">
+        <h3>徳川御三家</h3>
+        <p>尾張・紀伊・水戸</p>
+      </div>
+      <div class="set-card">
+        <h3>鎌倉新仏教</h3>
+        <p>法然・親鸞・一遍・道元・日蓮・栄西</p>
+      </div>
+      <div class="set-card">
+        <h3>五街道</h3>
+        <p>東海道・中山道など(地理と絡めた出題が定番)</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>調査の限界について</h2></div>
+    <div class="caveat">
+      <strong>正式な頻出度データは非公開のものが多い。</strong>
+      サピックス・四谷大塚などが独自に集計している出題頻度ランキングは、検索範囲内では公開情報として見つからなかった。
+      日能研は市販書籍(「よくでるランキング」シリーズ)として頻出人物・頻出テーマの一部を公開しているが、
+      塾配布教材(コアプラスなど)の詳細な内訳は非公開。
+      本レポートは、公開されている参考書・塾ブログ等の二次情報をもとにした整理であり、
+      入試問題そのものを網羅的に集計した一次データではない点をご留意いただきたい。
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">06</span><h2>参考にした情報源</h2></div>
+    <ul class="sources">
+      <li><a href="https://www.studyup.jp/contents/shakai/rekishi.html" target="_blank" rel="noopener">スタディアップ「中学受験 歴史まとめ」</a></li>
+      <li><a href="https://www.studyup.jp/search/hensachi/under50.html" target="_blank" rel="noopener">スタディアップ「基礎固め向け教材」</a></li>
+      <li><a href="https://www.studyup.jp/contents/shakai/nenpyou.html" target="_blank" rel="noopener">スタディアップ「年表の覚え方」</a></li>
+      <li><a href="https://www.studyup.jp/lineup/goro.html" target="_blank" rel="noopener">ゴロ将軍(年号語呂合わせ教材)</a></li>
+      <li><a href="https://mondaistock.com/rekishi-goku/" target="_blank" rel="noopener">Mondai Stock「歴史の重要語句一覧」</a></li>
+      <li><a href="https://www.chugakujuken.com/koushi_blog/kume/21827.html" target="_blank" rel="noopener">中学受験プロ講師ブログ「三大○○」まとめ</a></li>
+      <li><a href="https://ameblo.jp/baycube/entry-12787806994.html" target="_blank" rel="noopener">四大公害病の覚え方</a></li>
+      <li><a href="https://real-juku.jp/genroku-kasei/" target="_blank" rel="noopener">元禄文化と化政文化の違い</a></li>
+      <li><a href="https://real-juku.jp/kamakura-1185/" target="_blank" rel="noopener">鎌倉幕府成立年 1185年変更の解説</a></li>
+      <li><a href="https://shihan-sankousho.com/jr/j-sh/year-number" target="_blank" rel="noopener">最低限覚えるべき歴史の重要年号</a></li>
+      <li><a href="https://www.hanmoto.com/bd/isbn/9784840309097" target="_blank" rel="noopener">日能研「中学入試よくでるランキング 社会 歴史」</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    このリサーチをもとに、<a href="https://kaya87.github.io/juken-shakai-quiz/">社会(歴史)クイズアプリ</a>の問題を全99問に拡充済み。
+  </footer>
+
+</div>
