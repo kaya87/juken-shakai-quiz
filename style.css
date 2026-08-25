@@ -1,0 +1,230 @@
+:root {
+  --bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --text: #2b2620;
+  --text-muted: #6b6357;
+  --primary: #c1440e;
+  --primary-dark: #9c360b;
+  --correct: #2e7d32;
+  --wrong: #c62828;
+  --border: #e4ddd0;
+  --shadow: 0 2px 8px rgba(43, 38, 32, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+#app {
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  padding: 16px 16px 40px;
+}
+
+.app-header {
+  text-align: center;
+  padding: 20px 8px 12px;
+}
+
+.app-header h1 {
+  font-size: 1.3rem;
+  margin: 0 0 4px;
+  color: var(--primary-dark);
+}
+
+.subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.screen.hidden { display: none; }
+
+/* --- Era selection --- */
+.era-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.era-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-align: left;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.era-card:active { transform: scale(0.98); }
+
+.era-card .era-name { font-weight: 600; }
+
+.era-card .era-meta {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.era-card .era-best {
+  font-size: 0.75rem;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* --- Quiz screen --- */
+.quiz-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0 8px;
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--primary-dark);
+  font-size: 0.85rem;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.progress {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.quiz-title {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 4px 0 12px;
+}
+
+.question-box {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 20px 16px;
+  box-shadow: var(--shadow);
+}
+
+.question-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0 0 18px;
+  font-weight: 600;
+}
+
+.choices {
+  display: grid;
+  gap: 10px;
+}
+
+.choice-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fbfaf7;
+  font-size: 0.98rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.choice-btn:active { transform: scale(0.99); }
+
+.choice-btn.correct {
+  background: #e8f5e9;
+  border-color: var(--correct);
+  color: var(--correct);
+  font-weight: 600;
+}
+
+.choice-btn.wrong {
+  background: #ffebee;
+  border-color: var(--wrong);
+  color: var(--wrong);
+  font-weight: 600;
+}
+
+.choice-btn:disabled { cursor: default; }
+
+.feedback {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.feedback.correct { color: var(--correct); }
+.feedback.wrong { color: var(--wrong); }
+.feedback.hidden { display: none; }
+
+.btn-primary, .btn-secondary {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 16px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:active { background: var(--primary-dark); }
+
+.btn-secondary {
+  background: #fff;
+  color: var(--primary-dark);
+  border: 1px solid var(--primary-dark);
+}
+
+.btn-primary.hidden { display: none; }
+
+/* --- Result screen --- */
+.result-summary {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 16px 0;
+}
+
+.result-wrong {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+}
+
+.result-wrong-item {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+
+.result-wrong-item:last-child { border-bottom: none; }
+
+.result-wrong-item .rw-q { font-weight: 600; margin-bottom: 4px; }
+.result-wrong-item .rw-a { color: var(--correct); }
+
+.result-actions { margin-top: 20px; }
