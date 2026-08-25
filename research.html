@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>中学受験歴史 頻出用語リサーチ</title>
+<title>中学受験 社会 頻出用語リサーチ</title>
+<meta name="description" content="中学受験の社会科(歴史・地理・公民)クイズアプリのために調べた、入試で重視されやすい頻出用語・頻出テーマのリサーチまとめ。">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
 
@@ -340,7 +341,7 @@
 
   .ex-school {
     font-weight: 600;
-    white-space: nowrap;
+    overflow-wrap: break-word;
   }
 
   .ex-desc { color: var(--text-muted); }
@@ -425,6 +426,43 @@
   }
 
   .site-nav a:hover { text-decoration: underline; }
+
+  /* --- subject tabs --- */
+  .subject-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .subject-tab {
+    flex: 1;
+    padding: 11px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-family: "Shippori Mincho", serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+  }
+
+  .subject-tab.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  .subject-tab:hover:not(.active) {
+    border-color: var(--primary-soft);
+    color: var(--text);
+  }
+
+  @media (min-width: 720px) {
+    .subject-tabs { margin-bottom: 56px; }
+    .subject-tab { font-size: 1.02rem; padding: 13px 8px; }
+  }
 </style>
 </head>
 <body>
@@ -435,11 +473,11 @@
 
   <header class="hero">
     <div class="eyebrow">Research Memo</div>
-    <h1>中学受験 社会(歴史) 頻出用語リサーチ</h1>
+    <h1>中学受験 社会 頻出用語リサーチ</h1>
     <p class="lede">
       息子の中学受験対策として作った復習クイズ
-      「<a href="https://kaya87.github.io/juken-shakai-quiz/" style="color:var(--primary)">社会(歴史)クイズ</a>」の
-      問題設計にあたり、どの用語・テーマが実際の入試で重視されているかをWeb調査した結果をまとめた。
+      「<a href="https://kaya87.github.io/juken-shakai-quiz/" style="color:var(--primary)">社会クイズ</a>」の
+      問題設計にあたり、歴史・地理・公民の3科目それぞれについて、どの用語・テーマが実際の入試で重視されているかをWeb調査した結果をまとめた。
     </p>
     <div class="meta-row">
       <span><strong>調査日</strong> 2026-08-25</span>
@@ -447,6 +485,14 @@
       <span><strong>方法</strong> Web検索(公開情報ベース)</span>
     </div>
   </header>
+
+  <div class="subject-tabs" id="research-subject-tabs">
+    <button type="button" class="subject-tab active" data-subject="history">歴史</button>
+    <button type="button" class="subject-tab" data-subject="geography">地理</button>
+    <button type="button" class="subject-tab" data-subject="civics">公民</button>
+  </div>
+
+  <div id="subject-history">
 
   <section>
     <div class="section-head"><span class="section-num">01</span><h2>時代別 最重要キーワード</h2></div>
@@ -819,10 +865,697 @@
     </ul>
   </section>
 
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">09</span><h2>実際の出題例(関東・直近3年)</h2></div>
+    <p class="section-note">関東4都県(東京・神奈川・埼玉・千葉)の学校を対象に、直近3年程度(2024〜2026年度入試)の出題傾向を調査した結果。</p>
+    <div class="caveat" style="margin-bottom:24px;">
+      <strong>出典についての注意。</strong>
+      以下は学校公式PDFの原文ではなく、進学塾・過去問分析サイトの解説記事を情報源とした要約です。設問文の直接引用はしていません。年度別に断定できない場合は「傾向」として記載し、不確かな箇所は明記しています。
+    </div>
+
+    <div class="example-block">
+      <h3>東京都</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">2024</span><span class="ex-desc">テーマ「教育」。奈良〜鎌倉、江戸、明治、戦後・現代の教育制度の変遷。論述中心(100〜120字含む)</span></li>
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">2025</span><span class="ex-desc">テーマ「文字の歴史とデジタル化社会」。情報公開・知る権利、書店産業、読書離れ</span></li>
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">大問1が歴史(小問17)。漢字指定の用語問題中心、東京都関連の「ご当地問題」頻出。歴史配点比率が7年連続最高(約56%)</span></li>
+        <li><span class="ex-school">桜蔭中学校</span><span class="ex-year">傾向</span><span class="ex-desc">地理・歴史・公民・時事全単元、資料読解と考察問題</span></li>
+        <li><span class="ex-school">女子学院中学校</span><span class="ex-year">傾向</span><span class="ex-desc">年代並べ替え、1〜2行の理由記述、正誤問題。40分で70〜80設問</span></li>
+        <li><span class="ex-school">駒場東邦中学校</span><span class="ex-year">傾向</span><span class="ex-desc">歴史比重大、特に近現代史。資料読み取り+正誤判定+記述</span></li>
+        <li><span class="ex-school">海城中学校</span><span class="ex-year">傾向</span><span class="ex-desc">記述式(100〜250字)が2〜3題、歴史・地理・公民横断</span></li>
+        <li><span class="ex-school">渋谷教育学園渋谷中学校</span><span class="ex-year">2025</span><span class="ex-desc">地理・歴史・公民・時事全分野</span></li>
+        <li><span class="ex-school">東京都市大学等々力中学校</span><span class="ex-year">2025</span><span class="ex-desc">北海道地域史(擦文文化、新渡戸稲造、戊辰戦争、樺太千島交換条約)、トヨタ自動車の源流と産業革命</span></li>
+        <li><span class="ex-school">東京都市大学等々力中学校</span><span class="ex-year">2026</span><span class="ex-desc">福沢諭吉の生涯軸(蘭学修業、解体新書、開港期横浜、幕末使節団)</span></li>
+        <li><span class="ex-school">攻玉社中学校</span><span class="ex-year">2025</span><span class="ex-desc">聖武天皇と大仏、比叡山延暦寺、元禄文化、徴兵令、荘園制度、太閤検地、院政、松尾芭蕉</span></li>
+        <li><span class="ex-school">山脇学園中学校</span><span class="ex-year">傾向</span><span class="ex-desc">年代順並べ替え問題が3年連続</span></li>
+        <li><span class="ex-school">共立女子中学校</span><span class="ex-year">2026</span><span class="ex-desc">「歴史上の兄弟」テーマの会話文形式</span></li>
+        <li><span class="ex-school">聖徳学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">三内丸山遺跡、大仙陵古墳、聖徳太子、中尊寺・藤原清衡、石見銀山。日清戦争〜サンフランシスコ平和条約の年表問題</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン(waseda-eg.com)、中学入試ドクター、東大家庭教師友の会、一橋セイシン会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>神奈川県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">聖光学院</span><span class="ex-year">傾向</span><span class="ex-desc">テーマ史(分野史)形式、考察・記述問題が配点の約25%</span></li>
+        <li><span class="ex-school">栄光学園</span><span class="ex-year">2024</span><span class="ex-desc">テーマ「貨幣」。金銀鉱山開発、貨幣と時代背景の論述(100〜150字)</span></li>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">傾向</span><span class="ex-desc">歴史が配点の約4割、分野史形式、論述比重増加</span></li>
+        <li><span class="ex-school">慶應義塾普通部</span><span class="ex-year">傾向</span><span class="ex-desc">歴史が大問2題・配点約5割、選択式比率増加</span></li>
+        <li><span class="ex-school">フェリス女学院</span><span class="ex-year">2024</span><span class="ex-desc">大問4題中1題が歴史、抜き出し・自由論述</span></li>
+        <li><span class="ex-school">洗足学園</span><span class="ex-year">傾向</span><span class="ex-desc">地理・歴史・公民・時事全分野、図表統計読み取り必須</span></li>
+        <li><span class="ex-school">横浜共立学園</span><span class="ex-year">2022(参考)</span><span class="ex-desc">「日本の文学」テーマ、古代〜近代縦断。直近3年の情報ではなく参考情報</span></li>
+        <li><span class="ex-school">逗子開成中学校</span><span class="ex-year">2024</span><span class="ex-desc">「自然災害」統合テーマ内の災害年表</span></li>
+        <li><span class="ex-school">逗子開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">縄文〜奈良時代/江戸〜戦後の2パート構成</span></li>
+        <li><span class="ex-school">中央大学附属横浜中学校</span><span class="ex-year">2025</span><span class="ex-desc">大王・壬申・御家人・豊臣秀吉・地租の穴埋め、ワカタケル大王と鉄剣、藤原氏摂関政治</span></li>
+        <li><span class="ex-school">サレジオ学院中学校</span><span class="ex-year">2025</span><span class="ex-desc">テーマ「人の移動」</span></li>
+        <li><span class="ex-school">サレジオ学院中学校</span><span class="ex-year">2024</span><span class="ex-desc">テーマ「情報」</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン、中学入試ドクター、東大家庭教師友の会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>埼玉県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">栄東中学校</span><span class="ex-year">2025</span><span class="ex-desc">「100年ごとの節目」軸、平安期武士台頭、江戸末期対外政策、大正期普通選挙法と治安維持法、日清・日露戦争</span></li>
+        <li><span class="ex-school">大宮開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">奈良〜近現代通史(藤原不比等、坂上田村麻呂、保元の乱、建武の新政、参勤交代、戊辰戦争・韓国併合、青鞜・湯川秀樹・原爆ドーム)</span></li>
+        <li><span class="ex-school">浦和明の星女子中学校</span><span class="ex-year">傾向</span><span class="ex-desc">産業史・文化史テーマ別出題、正誤判定問題頻出</span></li>
+        <li><span class="ex-school">淑徳与野中学校</span><span class="ex-year">傾向</span><span class="ex-desc">地理・歴史・政治融合3題構成</span></li>
+        <li><span class="ex-school">立教新座中学校</span><span class="ex-year">2023〜2025</span><span class="ex-desc">貿易・条約、中東戦争、移民問題を切り口に地歴公民融合</span></li>
+        <li><span class="ex-school">星野学園中学校</span><span class="ex-year">傾向</span><span class="ex-desc">出来事の時系列並べ替え、資料・史料写真使用</span></li>
+        <li><span class="ex-school">昌平中学校</span><span class="ex-year">傾向</span><span class="ex-desc">大問4題中2題が歴史、記号選択・漢字指定用語記述</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン、中学入試ドクター、東大家庭教師友の会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>千葉県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">渋谷教育学園幕張中学校</span><span class="ex-year">2026</span><span class="ex-desc">古墳時代稲荷山古墳鉄剣の人名表記、江戸時代大名系図・配置(親藩・譜代・外様)</span></li>
+        <li><span class="ex-school">市川中学校</span><span class="ex-year">2023〜2025</span><span class="ex-desc">大化の改新、鎖国、日米関係が繰り返しテーマ</span></li>
+        <li><span class="ex-school">市川中学校</span><span class="ex-year">2025</span><span class="ex-desc">明治期経済政策と日米関係</span></li>
+        <li><span class="ex-school">東邦大学付属東邦中学校</span><span class="ex-year">傾向</span><span class="ex-desc">記号選択中心、基礎知識重視</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">2024</span><span class="ex-desc">地域テーマ史(岩手県: 古代〜江戸鎖国〜明治維新)</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">2025</span><span class="ex-desc">地域テーマ史(北海道: 産業と都市成立史)</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">2026</span><span class="ex-desc">地域テーマ史(新潟県)。地域テーマ史が3年連続</span></li>
+        <li><span class="ex-school">麗澤中学校</span><span class="ex-year">2024〜2025</span><span class="ex-desc">古代〜現代、明治以降は戦争史・外交史中心。天保の改革等</span></li>
+        <li><span class="ex-school">千葉日本大学第一中学校</span><span class="ex-year">傾向</span><span class="ex-desc">大問4題中歴史のウェイトやや大、年表学習が有効</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">傾向</span><span class="ex-desc">日中関係史頻出、江戸〜近代</span></li>
+      </ul>
+      <p class="example-source">出典: 渋谷幕張分析ブログ(peter-lws.net)、リーダーズブレイン、中学入試ドクター、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>調査できなかった範囲:</strong> 神奈川県・埼玉県・千葉県の標準校(偏差値50未満)については、歴史の具体的な出題内容もほぼ確認できなかった。
+      神奈川県(横浜中・関東学院六浦・東海大相模等)はほぼ全て未確認、埼玉県(埼玉栄・武南・昌平等)は学校名の特定はできたが設問内容は大半未確認、
+      千葉県(千葉明徳・八千代松陰・志学館等)もほぼ全て未確認だった。過去問集(声の教育社・東京学参)の購入や四谷大塚データベースへの会員登録が必要な情報が多い。
+    </div>
+  </section>
+
+  </div>
+
+  <div id="subject-geography" style="display:none;">
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>単元別 最重要キーワード</h2></div>
+    <p class="section-note">地理は歴史のような通史の流れがないため、クイズアプリの単元構成(GEOGRAPHY_DATA)に合わせて10単元に分けて、各単元で必ず押さえるべき用語をまとめた。</p>
+
+    <div class="timeline">
+
+      <div class="era">
+        <div class="era-range">47都道府県 × 8地方区分</div>
+        <div class="era-title">都道府県・地方区分</div>
+        <div class="term-row">
+          <span class="term">都道府県名と県庁所在地名が異なる19県</span><span class="term">8地方区分(北海道・東北・関東・中部・近畿・中国・四国・九州)</span><span class="term">白地図での位置確認</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">日本アルプスとリアス海岸が最頻出</div>
+        <div class="era-title">地形(山脈・平野・盆地・海岸・川・湖)</div>
+        <div class="term-row">
+          <span class="term">日本アルプス(飛騨山脈・木曽山脈・赤石山脈)</span><span class="term">利根川・信濃川</span><span class="term">リアス海岸</span><span class="term">平野・盆地・半島</span><span class="term">湖</span><span class="term">親潮・黒潮・対馬海流・リマン海流</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">雨温図の読み取りが最頻出</div>
+        <div class="era-title">気候(6つの気候区分と雨温図)</div>
+        <div class="term-row">
+          <span class="term">北海道の気候</span><span class="term">太平洋側の気候</span><span class="term">日本海側の気候</span><span class="term">中央高地(内陸性)の気候</span><span class="term">瀬戸内の気候</span><span class="term">南西諸島の気候</span><span class="term">雨温図の着眼点(冬の気温/梅雨・台風の降水パターン)</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">促成・抑制・近郊のセット理解</div>
+        <div class="era-title">農業</div>
+        <div class="term-row">
+          <span class="term">促成栽培</span><span class="term">抑制栽培(高冷地農業・高原野菜)</span><span class="term">近郊農業</span><span class="term">稲作地帯(庄内平野・石狩平野・越後平野など)</span><span class="term">果樹・畜産の産地</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">四大工業地帯と臨海型・内陸型</div>
+        <div class="era-title">工業</div>
+        <div class="term-row">
+          <span class="term">四大工業地帯(京浜・中京・阪神・北九州)</span><span class="term">工業地域(北関東・瀬戸内・東海など)</span><span class="term">臨海型・内陸型の違い</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">港ごとの輸出入品目をセットで</div>
+        <div class="era-title">貿易</div>
+        <div class="term-row">
+          <span class="term">成田国際空港(精密機械・集積回路)</span><span class="term">名古屋港(自動車)</span><span class="term">東京港・大阪港(衣類や食品の輸入)</span><span class="term">貿易相手国(中国・アメリカが上位)</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">発電方式と立地</div>
+        <div class="era-title">資源・エネルギー</div>
+        <div class="term-row">
+          <span class="term">火力発電</span><span class="term">水力発電</span><span class="term">原子力発電</span><span class="term">再生可能エネルギー</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">過疎・過密と三大都市圏</div>
+        <div class="era-title">人口</div>
+        <div class="term-row">
+          <span class="term">人口密度</span><span class="term">過疎</span><span class="term">過密</span><span class="term">三大都市圏</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">産地とセットで暗記</div>
+        <div class="era-title">伝統工芸品と産地</div>
+        <div class="term-row">
+          <span class="term">津軽塗(青森)</span><span class="term">南部鉄器(岩手)</span><span class="term">九谷焼(石川)</span><span class="term">輪島塗(石川)</span><span class="term">有田焼(佐賀)</span><span class="term">博多織(福岡)</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">原因物質・発生河川・県をセットで</div>
+        <div class="era-title">四大公害病</div>
+        <div class="term-row">
+          <span class="term">水俣病(熊本・有機水銀)</span><span class="term">新潟水俣病(新潟・有機水銀)</span><span class="term">イタイイタイ病(富山・カドミウム)</span><span class="term">四日市ぜんそく(三重・硫黄酸化物)</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語</h2></div>
+    <p class="section-note">地理リサーチで優先度が高いとされたのは、以下の15テーマ。歴史ほど数を絞り切れておらず、単元をまたぐ大テーマが中心になる点に注意。</p>
+    <div class="basics-panel">
+      <div class="basics-grid">
+        <span class="term">都道府県・県庁所在地・地方区分</span>
+        <span class="term">日本アルプス(3山脈)</span>
+        <span class="term">利根川・信濃川</span>
+        <span class="term">リアス海岸</span>
+        <span class="term">親潮・黒潮</span>
+        <span class="term">6つの気候区分と雨温図</span>
+        <span class="term">促成栽培・抑制栽培・近郊農業</span>
+        <span class="term">四大工業地帯</span>
+        <span class="term">四大公害病(原因物質・発生地セット)</span>
+        <span class="term">米どころ(庄内・石狩・越後平野)</span>
+        <span class="term">主要貿易港と輸出入品目(成田・名古屋・横浜・東京)</span>
+        <span class="term">発電方式(火力・水力・原子力・再生可能エネルギー)</span>
+        <span class="term">伝統的工芸品と産地</span>
+        <span class="term">人口密度・過疎過密</span>
+        <span class="term">三大都市圏</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>都道府県別の必須知識</h2></div>
+    <p class="section-note">単元別の知識とは別に、土台として押さえておくべき都道府県レベルの知識。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>県名と県庁所在地名が異なる19県</h3>
+        <p>神奈川県→横浜市、愛知県→名古屋市など。ここが頻出の弱点ポイントになりやすい。</p>
+      </div>
+      <div class="set-card">
+        <h3>白地図と8地方区分</h3>
+        <p>北海道・東北・関東・中部・近畿・中国・四国・九州の位置関係を白地図に落とし込めることが、すべての土台になる。</p>
+      </div>
+      <div class="set-card">
+        <h3>農産物・水産物の都道府県別ランキング</h3>
+        <p>米・りんご・みかんなど、農林水産省データにもとづく都道府県別収穫量ランキングが頻出。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>セットで問われる定番テーマ</h2></div>
+    <p class="section-note">単発の用語よりも、いくつかをまとめて覚えさせる出題が定番になっているテーマ。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>四大公害病</h3>
+        <p>水俣病(熊本・有機水銀)／新潟水俣病(新潟・有機水銀)／イタイイタイ病(富山・カドミウム)／四日市ぜんそく(三重・硫黄酸化物)。原因物質・発生河川・県をセットで暗記。</p>
+      </div>
+      <div class="set-card">
+        <h3>日本アルプス</h3>
+        <p>飛騨山脈(北アルプス)・木曽山脈(中央アルプス)・赤石山脈(南アルプス)を西から順に。</p>
+      </div>
+      <div class="set-card">
+        <h3>四大工業地帯</h3>
+        <p>京浜・中京・阪神・北九州。分布地図とグラフの判別とセットで問われる。</p>
+      </div>
+      <div class="set-card">
+        <h3>促成栽培⇔抑制栽培</h3>
+        <p>温暖な地域での早出し栽培(促成)と、高冷地での遅出し栽培(抑制)を対比で暗記。</p>
+      </div>
+      <div class="set-card">
+        <h3>主要貿易港と輸出入品目</h3>
+        <p>港ごとの特徴品目をセットで。航空貨物は軽くて高価なもの、港湾は自動車・機械類が中心。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>実際の出題例</h2></div>
+    <p class="section-note">上記のテーマが実際にどう出題されたかの実例。</p>
+    <div class="not-found-note" style="margin-bottom:0;">
+      今回は実例の裏付け調査ができていません。特定の学校・年度での出題実例は、今後の調査課題としたい。
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>調査の限界について</h2></div>
+    <div class="caveat">
+      <strong>単元別の頻出ランキングは非公開のものが多い。</strong>
+      サピックス・四谷大塚が地理の単元別頻出ランキングを無料公開しているページは、検索範囲内では確認できなかった(会員限定教材の可能性があり、要確認)。
+      日能研の市販書籍「中学入試よくでるランキング社会/地理」や、都道府県別の特産品・農産物ランキングに特化したサイト(chu-ju.benkyohou.info)、
+      中学受験社会専門サイト(studyup.jp)が参考として有用だった。
+      本レポートは、公開されている参考書・教育系サイト等の二次情報をもとにした整理であり、入試問題そのものを網羅的に集計した一次データではない点をご留意いただきたい。
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">07</span><h2>参考にした情報源</h2></div>
+    <ul class="sources">
+      <li><a href="https://www.studyup.jp/contents/shakai/chiri.html" target="_blank" rel="noopener">スタディアップ「中学受験 地理まとめ」</a></li>
+      <li><a href="https://www.studyup.jp/search/bunya/chiri.html" target="_blank" rel="noopener">スタディアップ「地理 分野別コンテンツ検索」</a></li>
+      <li><a href="https://chu-ju.benkyohou.info/ranking/nosanbuturanking.html" target="_blank" rel="noopener">中学受験ベンキョウ法「農産物ランキング」</a></li>
+      <li><a href="https://chu-ju.benkyohou.info/ranking/" target="_blank" rel="noopener">中学受験ベンキョウ法「都道府県別ランキング一覧」</a></li>
+      <li><a href="https://chu-ju.benkyohou.info/magirawashi/sanchisanmyaku.html" target="_blank" rel="noopener">中学受験ベンキョウ法「まぎらわしい産地・山脈」</a></li>
+      <li><a href="https://www.todofuken-rakugaki.com/mountains-alps/" target="_blank" rel="noopener">都道府県らくがき「日本アルプスの覚え方」</a></li>
+      <li><a href="https://yuzupa.com/pollution-disease/" target="_blank" rel="noopener">ゆずぱ「四大公害病まとめ」</a></li>
+      <li><a href="https://www.chizu-seisaku.com/geography/c-21/" target="_blank" rel="noopener">地図制作「地理の重要事項」</a></li>
+      <li><a href="https://www.eikoh.co.jp/koukoujuken/column/c2090/" target="_blank" rel="noopener">栄光ゼミナール 中学受験コラム</a></li>
+      <li><a href="https://yattoke.com/2019/03/06/craft/" target="_blank" rel="noopener">やっとけ!「伝統工芸品まとめ」</a></li>
+      <li><a href="https://social-line.com/chiri-sokuseiyokusei/" target="_blank" rel="noopener">ソーシャルライン「促成栽培・抑制栽培」</a></li>
+      <li><a href="https://mylearnlab.link/shakai-uonzu/" target="_blank" rel="noopener">マイラーンラボ「雨温図の読み方」</a></li>
+    </ul>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">08</span><h2>実際の出題例(関東・直近3年)</h2></div>
+    <p class="section-note">関東4都県(東京・神奈川・埼玉・千葉)の学校を対象に、直近3年程度(2024〜2026年度入試)の出題傾向を調査した結果。</p>
+    <div class="caveat" style="margin-bottom:24px;">
+      <strong>出典についての注意。</strong>
+      以下は学校公式PDFの原文ではなく、進学塾・過去問分析サイトの解説記事を情報源とした要約です。設問文の直接引用はしていません。年度別に断定できない場合は「傾向」として記載し、不確かな箇所は明記しています。
+    </div>
+
+    <div class="example-block">
+      <h3>東京都</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">傾向</span><span class="ex-desc">地図・図表・グラフ読み取りが毎年出題、東京都のご当地問題</span></li>
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">大問2が地理・公民融合</span></li>
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">傾向</span><span class="ex-desc">統計資料読み取り、説明記述重視</span></li>
+        <li><span class="ex-school">桜蔭中学校</span><span class="ex-year">2024</span><span class="ex-desc">水道の歴史と水、先住民族と持続可能な開発、税の歴史の3分野複合大問</span></li>
+        <li><span class="ex-school">女子学院中学校</span><span class="ex-year">2025</span><span class="ex-desc">大問3〜5、地図・資料読み取り</span></li>
+        <li><span class="ex-school">渋谷教育学園渋谷中学校</span><span class="ex-year">2025</span><span class="ex-desc">記述問題3題程度(最大80字)</span></li>
+        <li><span class="ex-school">駒場東邦中学校</span><span class="ex-year">傾向</span><span class="ex-desc">地形図・統計資料読み取り必出、地理配点は約15%</span></li>
+        <li><span class="ex-school">豊島岡女子学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">選択問題中心</span></li>
+        <li><span class="ex-school">海城中学校</span><span class="ex-year">2025</span><span class="ex-desc">記述2〜3題(100〜250字)</span></li>
+        <li><span class="ex-school">武蔵中学校</span><span class="ex-year">2025</span><span class="ex-desc">総解答数10〜12問中6〜8問が記述、日本地図問題高頻度</span></li>
+        <li><span class="ex-school">かえつ有明中学校</span><span class="ex-year">2024</span><span class="ex-desc">テーマ「木材」。新木場周辺地図読み取りと林業統計</span></li>
+        <li><span class="ex-school">かえつ有明中学校</span><span class="ex-year">2025</span><span class="ex-desc">テーマ「江戸川区」。姉妹都市の雨温図</span></li>
+        <li><span class="ex-school">品川女子学院中等部</span><span class="ex-year">傾向</span><span class="ex-desc">地形図・グラフ資料読み取り、「誤っているものを選ぶ」形式</span></li>
+        <li><span class="ex-school">田園調布学園中等部</span><span class="ex-year">2025</span><span class="ex-desc">創立100周年、学園史を絡めた出題</span></li>
+        <li><span class="ex-school">青稜中学校</span><span class="ex-year">過去5年</span><span class="ex-desc">白地図の地名特定、複数都市の雨温図判別が連続出題</span></li>
+        <li><span class="ex-school">サレジアン国際学園中学校</span><span class="ex-year">2018</span><span class="ex-desc">地形図や統計グラフ使用(確認できたのは2018年出題例)</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン(waseda-eg.com)、中学入試ドクター、東大家庭教師友の会、一橋セイシン会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>神奈川県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">聖光学院</span><span class="ex-year">2025</span><span class="ex-desc">地形図・統計資料・地図・写真の複数資料横断読解</span></li>
+        <li><span class="ex-school">聖光学院</span><span class="ex-year">2026</span><span class="ex-desc">記述式約47%、地形図・人口ピラミッド・統計表</span></li>
+        <li><span class="ex-school">栄光学園</span><span class="ex-year">2024</span><span class="ex-desc">歴史比重高く地理は一部のみ</span></li>
+        <li><span class="ex-school">栄光学園</span><span class="ex-year">2025</span><span class="ex-desc">教科書注釈レベルの周辺知識</span></li>
+        <li><span class="ex-school">栄光学園</span><span class="ex-year">2026</span><span class="ex-desc">「乗り物」「ごみ問題」テーマ型</span></li>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">2024</span><span class="ex-desc">米の生産地・作物価格・流通コスト・地代の関係を図式化させる出題</span></li>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">2026</span><span class="ex-desc">長文記述(約100字)</span></li>
+        <li><span class="ex-school">慶應義塾普通部</span><span class="ex-year">2026</span><span class="ex-desc">東北地方、高速道路網テーマ</span></li>
+        <li><span class="ex-school">慶應義塾湘南藤沢中等部</span><span class="ex-year">傾向</span><span class="ex-desc">各地の自然・産業、食料自給率、輸入農産品</span></li>
+        <li><span class="ex-school">フェリス女学院</span><span class="ex-year">2024</span><span class="ex-desc">佐賀県唐津市の地域活性化・産学連携</span></li>
+        <li><span class="ex-school">横浜共立学園</span><span class="ex-year">傾向</span><span class="ex-desc">地理・歴史・公民ほぼ均等配分、テーマ設定型</span></li>
+        <li><span class="ex-school">カリタス女子中学校</span><span class="ex-year">2026</span><span class="ex-desc">鳥取県(二十世紀梨)・千葉県(落花生)等の地名特産品、工業地帯出荷額グラフ、伊豆半島地形図(地図記号・標高・津波碑)</span></li>
+        <li><span class="ex-school">山手学院中学校</span><span class="ex-year">傾向</span><span class="ex-desc">地形図読み取り、思考力型問題</span></li>
+        <li><span class="ex-school">鎌倉学園中学校</span><span class="ex-year">傾向</span><span class="ex-desc">日本の自然・産業と世界とのつながり</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン、中学入試ドクター、東大家庭教師友の会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>埼玉県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">栄東中学校(東大特待I)</span><span class="ex-year">2025</span><span class="ex-desc">大分県・福井県地形、北海道大豆生産・水田率、遠洋漁業、山形県電子部品産業、在留外国人統計</span></li>
+        <li><span class="ex-school">開智中学校</span><span class="ex-year">2025</span><span class="ex-desc">離島の生活を題材にした記述式</span></li>
+        <li><span class="ex-school">大宮開成中学校</span><span class="ex-year">傾向</span><span class="ex-desc">盆地・平野・河川、北海道・中部地方、雨温図読み取り頻出</span></li>
+        <li><span class="ex-school">淑徳与野中学校</span><span class="ex-year">2024〜2025</span><span class="ex-desc">和歌山県・埼玉県三富新田、真珠養殖・海女、リアス海岸、等高線・地図記号</span></li>
+        <li><span class="ex-school">浦和明の星女子中学校</span><span class="ex-year">傾向</span><span class="ex-desc">農産物都道府県別順位統計、新幹線関連問題頻出</span></li>
+        <li><span class="ex-school">立教新座中学校</span><span class="ex-year">2023〜2025</span><span class="ex-desc">貿易と条約、中東戦争、移民問題を絡めた地理的要素</span></li>
+        <li><span class="ex-school">星野学園中学校</span><span class="ex-year">傾向</span><span class="ex-desc">記述問題なし、基礎重視</span></li>
+        <li><span class="ex-school">細田学園中学校</span><span class="ex-year">傾向</span><span class="ex-desc">世界の主要国・地域、伝統産業所在地</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン、中学入試ドクター、東大家庭教師友の会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>千葉県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">渋谷教育学園幕張中学校</span><span class="ex-year">2026</span><span class="ex-desc">近畿地方住宅タイプ比率グラフ、京都市景観規制緩和、都心5区人口推移とオフィス空室率</span></li>
+        <li><span class="ex-school">渋谷教育学園幕張中学校</span><span class="ex-year">2025</span><span class="ex-desc">幕張・渋谷の都市開発・国際教育施設・ネーミングライツ・日照権</span></li>
+        <li><span class="ex-school">市川中学校</span><span class="ex-year">傾向</span><span class="ex-desc">地図・統計・グラフ読み取り中心</span></li>
+        <li><span class="ex-school">東邦大学付属東邦中学校</span><span class="ex-year">傾向</span><span class="ex-desc">日本地図・北海道・関東地方と長野県・河川、マニアックな地誌知識</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">傾向</span><span class="ex-desc">リード文+地図・地形図・統計・写真の小問形式</span></li>
+        <li><span class="ex-school">専修大学松戸中学校</span><span class="ex-year">2025</span><span class="ex-desc">福岡県庁地図記号、メキシコ・かぼちゃ生産、乳用牛・豚・ブロイラー統計、原子力発電、種子島・対馬・屋久島</span></li>
+        <li><span class="ex-school">専修大学松戸中学校</span><span class="ex-year">2024</span><span class="ex-desc">鳥取市の冬季降水量の理由</span></li>
+        <li><span class="ex-school">麗澤中学校</span><span class="ex-year">2025</span><span class="ex-desc">岩手県盛岡市・石川県金沢市、山地名判別、桜島噴火とシラス台地、京浜・中京・阪神工業地帯の業種構成、四大公害病</span></li>
+      </ul>
+      <p class="example-source">出典: 渋谷幕張分析ブログ(peter-lws.net)、リーダーズブレイン、中学入試ドクター、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>調査できなかった範囲:</strong> 東京都標準校(足立学園・共栄学園・工学院大附属・郁文館等)の地理は、具体的な出題テーマを確認できなかった。
+      神奈川県標準校(横浜中・関東学院六浦・東海大相模等)、埼玉県標準校(埼玉栄・武南・昌平等。学校名の特定はできたが設問内容は大半未確認)、
+      千葉県標準校(千葉明徳・八千代松陰・志学館等)についても、地理の出題内容はほぼ確認できなかった。過去問集(声の教育社・東京学参)の購入や
+      四谷大塚データベースへの会員登録が必要な情報が多い。
+    </div>
+  </section>
+
+  </div>
+
+  <div id="subject-civics" style="display:none;">
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>単元別 最重要キーワード</h2></div>
+    <p class="section-note">公民もクイズアプリの単元構成(CIVICS_DATA)に合わせて9単元に分けて、各単元で必ず押さえるべき用語をまとめた。公民は「政治分野」が最頻出、次いで「国際分野」「経済分野」の順とされる。</p>
+
+    <div class="timeline">
+
+      <div class="era">
+        <div class="era-range">三大原則が出題の中心軸</div>
+        <div class="era-title">日本国憲法</div>
+        <div class="term-row">
+          <span class="term">国民主権</span><span class="term">基本的人権の尊重</span><span class="term">平和主義</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">公民全体の中でも特に頻出</div>
+        <div class="era-title">三権分立</div>
+        <div class="term-row">
+          <span class="term">国会(立法)</span><span class="term">内閣(行政)</span><span class="term">裁判所(司法)</span><span class="term">三権の相互抑制関係</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">衆参の違いと被選挙権年齢</div>
+        <div class="era-title">国会</div>
+        <div class="term-row">
+          <span class="term">衆議院・参議院</span><span class="term">衆議院の優越</span><span class="term">被選挙権年齢(衆院25歳・参院30歳)</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">議院内閣制と三審制</div>
+        <div class="era-title">内閣・裁判所</div>
+        <div class="term-row">
+          <span class="term">内閣(議院内閣制)</span><span class="term">裁判所(司法権)</span><span class="term">三審制</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">自由権・社会権・平等権など</div>
+        <div class="era-title">基本的人権</div>
+        <div class="term-row">
+          <span class="term">自由権</span><span class="term">社会権(生存権)</span><span class="term">平等権</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">定番単元</div>
+        <div class="era-title">選挙・地方自治</div>
+        <div class="term-row">
+          <span class="term">選挙</span><span class="term">地方自治</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">定番単元</div>
+        <div class="era-title">財政・税金</div>
+        <div class="term-row">
+          <span class="term">財政</span><span class="term">税金</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">最頻出単元の一つ</div>
+        <div class="era-title">国際連合・国際関係</div>
+        <div class="term-row">
+          <span class="term">国際連合</span>
+        </div>
+      </div>
+
+      <div class="era">
+        <div class="era-range">近年急増している出題テーマ</div>
+        <div class="era-title">時事・SDGs</div>
+        <div class="term-row">
+          <span class="term">SDGs</span><span class="term">カタカナ新用語(ベーシックインカム・ヘイトスピーチ・フェアトレード・ユニバーサルデザインなど)</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語 トップ24</h2></div>
+    <p class="section-note">複数の調査結果で共通していたのは、まず政治分野(憲法・三権分立・国会・内閣・裁判所・人権)の基礎を固めることが土台になるという指摘。まずこの24項目の徹底が優先。</p>
+    <div class="basics-panel">
+      <div class="basics-grid">
+        <span class="term">国民主権</span>
+        <span class="term">基本的人権の尊重</span>
+        <span class="term">平和主義</span>
+        <span class="term">三権分立</span>
+        <span class="term">国会(唯一の立法機関)</span>
+        <span class="term">衆議院・参議院</span>
+        <span class="term">衆議院の優越</span>
+        <span class="term">内閣(行政・議院内閣制)</span>
+        <span class="term">内閣総理大臣</span>
+        <span class="term">裁判所(司法権)</span>
+        <span class="term">三審制</span>
+        <span class="term">最高裁判所</span>
+        <span class="term">違憲審査権</span>
+        <span class="term">自由権</span>
+        <span class="term">平等権</span>
+        <span class="term">社会権(生存権)</span>
+        <span class="term">参政権</span>
+        <span class="term">新しい人権(環境権・知る権利・プライバシー権)</span>
+        <span class="term">地方自治</span>
+        <span class="term">直接請求権</span>
+        <span class="term">選挙(普通選挙・平等選挙など選挙の4原則)</span>
+        <span class="term">国際連合</span>
+        <span class="term">安全保障理事会</span>
+        <span class="term">財政(税金・国債)</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>セットで問われる頻出テーマ</h2></div>
+    <p class="section-note">単発の用語よりも、いくつかをまとめて覚えさせる出題が定番になっているテーマ。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>三権分立</h3>
+        <p>国会(立法)⇔内閣(行政)⇔裁判所(司法)の相互抑制関係をセットで理解する。</p>
+      </div>
+      <div class="set-card">
+        <h3>基本的人権の種類</h3>
+        <p>自由権・平等権・社会権・参政権・請求権の5分類。</p>
+      </div>
+      <div class="set-card">
+        <h3>衆議院と参議院の違い</h3>
+        <p>任期(4年/6年)・解散の有無・被選挙権年齢(25歳/30歳)・優越の範囲をセットで対比。</p>
+      </div>
+      <div class="set-card">
+        <h3>三審制</h3>
+        <p>地方裁判所→高等裁判所→最高裁判所の流れ。</p>
+      </div>
+      <div class="set-card">
+        <h3>日本国憲法の三大原則</h3>
+        <p>国民主権・平和主義・基本的人権の尊重。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>時事問題の傾向(2026年度入試向け)</h2></div>
+    <p class="section-note">時事問題は独立した大問というより、既習単元(公民・歴史)と絡めて出題されることが多いとされる。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>記念年・周年</h3>
+        <p>2026年入試では、昭和100年・国連設立80年(1945年)・阪神淡路大震災30年など、節目の年に絡む出題が予想される。</p>
+      </div>
+      <div class="set-card">
+        <h3>人口・社会保障</h3>
+        <p>合計特殊出生率の低下、少子高齢化。</p>
+      </div>
+      <div class="set-card">
+        <h3>労働・経済</h3>
+        <p>最低賃金の引き上げ、働き方改革。</p>
+      </div>
+      <div class="set-card">
+        <h3>国際</h3>
+        <p>国連の役割、日本の国連加盟(1956年)。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>実際の出題例</h2></div>
+    <p class="section-note">上記のテーマが実際にどう出題されたかの実例。</p>
+    <div class="not-found-note" style="margin-bottom:0;">
+      今回は実例の裏付け調査ができていません。特定の学校・年度での出題実例は、今後の調査課題としたい。
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>調査の限界について</h2></div>
+    <div class="caveat">
+      <strong>公式な頻出ランキングは非公開のものが多い。</strong>
+      サピックス・日能研・四谷大塚が公式に公開している「公民頻出ランキング」の一次ページは、検索範囲内では確認できなかった(要確認)。
+      また、「三権分立が公民の◯%を占める」といった統計値はAI検索の要約経由で得た情報であり、一次資料での裏付けが取れていないため、
+      正確な数字が必要な場面では別途確認が必要な点に留意いただきたい。
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">07</span><h2>参考にした情報源</h2></div>
+    <ul class="sources">
+      <li><a href="https://www.chugakujuken.com/koushi_blog/shimizu/21582.html" target="_blank" rel="noopener">中学受験ナビ 講師ブログ(清水)</a></li>
+      <li><a href="https://www.studyup.jp/contents/shakai/koumin.html" target="_blank" rel="noopener">スタディアップ「中学受験 公民まとめ」</a></li>
+      <li><a href="https://www.eikoh.co.jp/koukoujuken/column/c2100/" target="_blank" rel="noopener">栄光ゼミナール 中学受験コラム</a></li>
+      <li><a href="https://exam.fukuumedia.com/komin-sanken/" target="_blank" rel="noopener">中学受験ナビ「公民・三権分立まとめ」</a></li>
+      <li><a href="https://ichigo-drill.jp/citizens_fundamental_human_rights" target="_blank" rel="noopener">いちごドリル「基本的人権まとめ」</a></li>
+      <li><a href="https://www.chugakujuken.com/koushi_blog/amano/25518.html" target="_blank" rel="noopener">中学受験ナビ 講師ブログ(天野)</a></li>
+      <li><a href="https://jukureiwa.com/tips/honka_koumin/" target="_blank" rel="noopener">塾令和「公民 本番対策」</a></li>
+      <li><a href="https://www.asagaku.com/sdgs/exam.html" target="_blank" rel="noopener">朝日学生新聞社「SDGsと入試」</a></li>
+      <li><a href="https://www.studyup.jp/info/sdgs.html" target="_blank" rel="noopener">スタディアップ「SDGs出題情報」</a></li>
+      <li><a href="https://mocosta.jp/2026jiji/" target="_blank" rel="noopener">もこスタ「2026年 時事問題まとめ」</a></li>
+      <li><a href="https://inspire-academy.jp/2026%E5%B9%B4%E5%BA%A6%E4%B8%AD%E5%AD%A6%E5%8F%97%E9%A8%93%E3%80%90%E7%A4%BE%E4%BC%9A%E3%80%91%E6%99%82%E4%BA%8B%E5%95%8F%E9%A1%8C%E5%AE%8C%E5%85%A8%E4%BA%88%E6%83%B3%E3%80%9C%E9%87%8D%E8%A6%81/" target="_blank" rel="noopener">インスパイアアカデミー「2026年度 社会 時事問題完全予想」</a></li>
+    </ul>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">08</span><h2>実際の出題例(関東・直近3年)</h2></div>
+    <p class="section-note">関東4都県(東京・神奈川・埼玉・千葉)の学校を対象に、直近3年程度(2024〜2026年度入試)の出題傾向を調査した結果。</p>
+    <div class="caveat" style="margin-bottom:24px;">
+      <strong>出典についての注意。</strong>
+      以下は学校公式PDFの原文ではなく、進学塾・過去問分析サイトの解説記事を情報源とした要約です。設問文の直接引用はしていません。年度別に断定できない場合は「傾向」として記載し、不確かな箇所は明記しています。
+    </div>
+
+    <div class="example-block">
+      <h3>東京都</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">傾向</span><span class="ex-desc">三権分立・選挙制度など基礎知識問題中心</span></li>
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">傾向</span><span class="ex-desc">長文記述(80〜120字)、近年公民単元重視傾向</span></li>
+        <li><span class="ex-school">武蔵中学校</span><span class="ex-year">傾向</span><span class="ex-desc">長文読解型、制度の背景や意見を説明させる出題</span></li>
+        <li><span class="ex-school">駒場東邦中学校</span><span class="ex-year">傾向</span><span class="ex-desc">テーマ「貿易」で公民・時事と絡めた出題が継続</span></li>
+        <li><span class="ex-school">早稲田中学校</span><span class="ex-year">2025</span><span class="ex-desc">地理→歴史→公民の順で大問構成、記号選択中心・論述1問</span></li>
+        <li><span class="ex-school">巣鴨中学校</span><span class="ex-year">傾向</span><span class="ex-desc">選挙・行政機関・裁判分野からの出題が多い</span></li>
+        <li><span class="ex-school">学習院女子中等科</span><span class="ex-year">傾向</span><span class="ex-desc">地理・歴史・公民・時事からまんべんなく(大問3〜5・設問15〜25)</span></li>
+        <li><span class="ex-school">跡見学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">自由民権運動、五箇条の御誓文、大日本帝国憲法と日本国憲法の比較、帝国議会と現在の国会の相違(二院制、選挙権年齢18歳)</span></li>
+        <li><span class="ex-school">跡見学園中学校</span><span class="ex-year">2026</span><span class="ex-desc">オーバーツーリズム、モーダルシフト、ユネスコ、円安と外国人観光客、「冷戦」の漢字二字言い換え</span></li>
+        <li><span class="ex-school">聖学院中学校</span><span class="ex-year">2026</span><span class="ex-desc">日本国憲法三大原理、GHQ、憲法記念日、大日本帝国憲法の特徴(欽定憲法か等)、非核三原則を提唱した首相(佐藤栄作等)、三権分立・違憲審査権</span></li>
+        <li><span class="ex-school">京華中学校</span><span class="ex-year">2024</span><span class="ex-desc">新紙幣刷新、日本銀行の役割、GDP略称、マイナンバー制度、天皇の譲位・院政</span></li>
+        <li><span class="ex-school">京華中学校</span><span class="ex-year">2025</span><span class="ex-desc">労働基本権、厚生労働省、インフレーション、日本銀行の金融政策、最低賃金制度・育休取得率</span></li>
+        <li><span class="ex-school">京華中学校</span><span class="ex-year">2026</span><span class="ex-desc">明治期の「家制度」と1947年廃止、日本国憲法第13条、こども家庭庁(推定)</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン(waseda-eg.com)、中学入試ドクター、東大家庭教師友の会、一橋セイシン会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>神奈川県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">中央大学附属横浜中学校</span><span class="ex-year">2025</span><span class="ex-desc">規制緩和、通常国会の開会時期、弾劾裁判、三権分立、社会保障関係費、政党交付金</span></li>
+        <li><span class="ex-school">慶應義塾湘南藤沢中等部</span><span class="ex-year">2025</span><span class="ex-desc">2024年9月自民党総裁選・派閥・公正取引委員会の独立性(国会と内閣)、平等権・プライバシー権・生存権(自然災害と基本的人権)</span></li>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">2025</span><span class="ex-desc">2024年ノーベル平和賞(日本原水爆被害者団体協議会)を戦争テーマの大問内で出題</span></li>
+        <li><span class="ex-school">フェリス女学院</span><span class="ex-year">2026</span><span class="ex-desc">トランプ関税引き上げ、関税制度、食品ロス、代替肉</span></li>
+        <li><span class="ex-school">サレジオ学院中学校</span><span class="ex-year">2025</span><span class="ex-desc">国外からの人口流入の利点(記述)</span></li>
+        <li><span class="ex-school">桐光学園中学校</span><span class="ex-year">2026</span><span class="ex-desc">国会(衆参の違い、比例代表並立制、期日前投票)、マニフェスト、財政・金融政策の違い、社会保障制度、公職選挙法</span></li>
+        <li><span class="ex-school">桐光学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">ふるさと納税と地方自治(団体自治・住民自治)、法定受託事務、憲法上の国民の義務、所得税・住民税、東京都知事・都議会</span></li>
+        <li><span class="ex-school">桐光学園中学校</span><span class="ex-year">2024</span><span class="ex-desc">G7広島サミット、国際連合、ジェンダーギャップ指数、憲法14条・24条(同性婚訴訟)</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン、中学入試ドクター、東大家庭教師友の会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>埼玉県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">栄東中学校</span><span class="ex-year">2025</span><span class="ex-desc">三権(立法・行政・司法)、経済、国際社会。憲法第79条等</span></li>
+        <li><span class="ex-school">開智中学校</span><span class="ex-year">2025</span><span class="ex-desc">国民の「義務と権利」、納税・勤労の義務、投票権、憲法改正手続き</span></li>
+        <li><span class="ex-school">立教新座中学校</span><span class="ex-year">2024</span><span class="ex-desc">日本国憲法と大日本帝国憲法の比較、三権のしくみ、国際連合</span></li>
+        <li><span class="ex-school">春日部共栄中学校</span><span class="ex-year">2025(推定)</span><span class="ex-desc">少子化テーマ</span></li>
+        <li><span class="ex-school">埼玉栄中学校</span><span class="ex-year">傾向</span><span class="ex-desc">国会・内閣・裁判所の統治機構基本、選択+用語記述+説明記述</span></li>
+      </ul>
+      <p class="example-source">出典: リーダーズブレイン、中学入試ドクター、東大家庭教師友の会、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>千葉県</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">渋谷教育学園幕張中学校</span><span class="ex-year">2026</span><span class="ex-desc">国民の祝日、国会立法プロセス、有給休暇制度、検定制度と検閲、内閣と国会の権限関係</span></li>
+        <li><span class="ex-school">市川中学校</span><span class="ex-year">2026</span><span class="ex-desc">日本国憲法主要条文、三権、地方自治・選挙制度、ジェンダーと選挙区合区制度、同性婚、旧民法と現憲法の家族観</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">2025</span><span class="ex-desc">米大統領選挙との比較、内閣総理大臣指名手続き、ジニ係数と所得格差</span></li>
+        <li><span class="ex-school">東邦大学付属東邦中学校</span><span class="ex-year">2025</span><span class="ex-desc">米連邦最高裁判事(ギンズバーグ氏)、憲法と法律の違い、裁判制度、男女平等、最高裁裁判官国民審査制度</span></li>
+        <li><span class="ex-school">専修大学松戸中学校</span><span class="ex-year">2025</span><span class="ex-desc">憲法・政治のしくみ、国の歳出</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">2025</span><span class="ex-desc">衆参選挙制度、国庫支出金、政令指定都市、裁判官罷免制度、国連</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">2024</span><span class="ex-desc">男女平等関連政策・制度</span></li>
+        <li><span class="ex-school">麗澤中学校</span><span class="ex-year">傾向</span><span class="ex-desc">憲法等、30〜40字記述が毎年出題</span></li>
+      </ul>
+      <p class="example-source">出典: 渋谷幕張分析ブログ(peter-lws.net)、リーダーズブレイン、中学入試ドクター、TOMAS、四谷大塚、学校公式サイト等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>調査できなかった範囲:</strong> 神奈川県・埼玉県・千葉県の標準校(偏差値50未満)については、公民の具体的な出題内容もほぼ確認できなかった。
+      神奈川県(横浜中・関東学院六浦・東海大相模等)はほぼ全て未確認、埼玉県(埼玉栄・武南・昌平等)は学校名の特定はできたが設問内容は大半未確認、
+      千葉県(千葉明徳・八千代松陰・志学館等)もほぼ全て未確認だった。過去問集(声の教育社・東京学参)の購入や四谷大塚データベースへの会員登録が必要な情報が多い。
+    </div>
+  </section>
+
+  </div>
+
   <footer>
-    このリサーチをもとに、<a href="https://kaya87.github.io/juken-shakai-quiz/">社会(歴史)クイズアプリ</a>の問題を全99問に拡充済み。
+    このリサーチをもとに、<a href="https://kaya87.github.io/juken-shakai-quiz/">社会クイズアプリ</a>の問題を歴史・地理・公民あわせて全408問(歴史143問・地理132問・公民133問)に拡充済み。
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".subject-tab"));
+  var panels = {
+    history: document.getElementById("subject-history"),
+    geography: document.getElementById("subject-geography"),
+    civics: document.getElementById("subject-civics")
+  };
+
+  function showSubject(id) {
+    Object.keys(panels).forEach(function (key) {
+      if (panels[key]) panels[key].style.display = key === id ? "" : "none";
+    });
+    tabs.forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-subject") === id);
+    });
+  }
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      showSubject(btn.getAttribute("data-subject"));
+    });
+  });
+
+  showSubject("history");
+})();
+</script>
+
 </body>
 </html>
