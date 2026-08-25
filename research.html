@@ -291,6 +291,70 @@
 
   .caveat strong { color: var(--text); }
 
+  /* --- exam examples --- */
+  .example-block { margin-bottom: 26px; }
+  .example-block:last-child { margin-bottom: 0; }
+
+  .example-block h3 {
+    font-family: "Shippori Mincho", serif;
+    font-size: 1.02rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+  }
+
+  .example-list {
+    list-style: none;
+    margin: 0 0 10px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .example-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    align-items: baseline;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    box-shadow: var(--shadow);
+    font-size: 0.88rem;
+  }
+
+  .ex-year {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .ex-school {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .ex-desc { color: var(--text-muted); }
+
+  .example-source {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .example-source a { color: var(--primary-soft); }
+
+  .not-found-note {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    background: var(--surface-alt);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 26px;
+  }
+
   /* --- sources --- */
   .sources {
     columns: 2;
@@ -596,7 +660,71 @@
   </section>
 
   <section>
-    <div class="section-head"><span class="section-num">05</span><h2>調査の限界について</h2></div>
+    <div class="section-head"><span class="section-num">05</span><h2>実際の出題例</h2></div>
+    <p class="section-note">上記のテーマが実際にどう出題されたかの実例。</p>
+    <div class="caveat" style="margin-bottom:24px;">
+      <strong>出典についての注意。</strong>
+      以下は学校が公開する過去問そのもの(一次資料)ではなく、中学受験情報ブログ「恋する中学受験」が
+      複数校の過去問を分析してまとめた記事(二次情報)にもとづく。同ブログ以外の独立したソースでの裏付けは
+      取れていないため、あくまで出題傾向をつかむ参考情報としてご覧いただきたい。
+    </div>
+
+    <div class="example-block">
+      <h3>江戸の三大改革</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">学習院中等科</span><span class="ex-year">2022</span><span class="ex-desc">寛政の改革の説明として正しいものを選ぶ問題</span></li>
+        <li><span class="ex-school">浦和実業学園中学校</span><span class="ex-year">2022</span><span class="ex-desc">享保の改革で民衆の意見を聞くために設置されたもの(目安箱)を問う設問</span></li>
+        <li><span class="ex-school">江戸川学園取手中学校</span><span class="ex-year">2022</span><span class="ex-desc">1700年代以降の出来事(三大改革含む)を古い順に並べる問題</span></li>
+        <li><span class="ex-school">佼成学園中学校</span><span class="ex-year">2022</span><span class="ex-desc">三大改革それぞれの担当者・政策内容を記述させる問題</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">2022</span><span class="ex-desc">徳川吉宗が行った改革(享保の改革)を問う設問</span></li>
+      </ul>
+      <p class="example-source">出典: <a href="https://ameblo.jp/tyuugaku-jyuken/entry-12758086764.html" target="_blank" rel="noopener">恋する中学受験</a></p>
+    </div>
+
+    <div class="example-block">
+      <h3>元寇</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">湘南学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">鎌倉時代の出来事(御成敗式目・守護と地頭の設置・元寇)を年代順に並べる問題の一部として出題</span></li>
+      </ul>
+      <p class="example-source">出典: <a href="https://ameblo.jp/tyuugaku-jyuken/entry-12928886784.html" target="_blank" rel="noopener">恋する中学受験</a>(単独出題の実例は他に見つからず)</p>
+    </div>
+
+    <div class="example-block">
+      <h3>鎌倉新仏教</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">青山学院横浜英和中</span><span class="ex-year">2025</span><span class="ex-desc">日蓮と題目・延暦寺焼き討ちに関する設問</span></li>
+        <li><span class="ex-school">開智日本橋学園中</span><span class="ex-year">2025</span><span class="ex-desc">新仏教の宗派を選ばせる問題</span></li>
+        <li><span class="ex-school">法政大学中</span><span class="ex-year">2025</span><span class="ex-desc">最澄・空海、法然に関する設問</span></li>
+        <li><span class="ex-school">山手学院中</span><span class="ex-year">2025</span><span class="ex-desc">仏教伝来に関する正誤判定</span></li>
+        <li><span class="ex-school">浦和明の星女子中</span><span class="ex-year">2025</span><span class="ex-desc">留学僧に関する正誤判定</span></li>
+        <li><span class="ex-school">品川女子学院中等部</span><span class="ex-year">2025</span><span class="ex-desc">栄西と茶に関する設問</span></li>
+        <li><span class="ex-school">麗澤中</span><span class="ex-year">2025</span><span class="ex-desc">一遍の宗派を問う設問</span></li>
+      </ul>
+      <p class="example-source">出典: <a href="https://ameblo.jp/tyuugaku-jyuken/entry-12928612289.html" target="_blank" rel="noopener">恋する中学受験</a></p>
+    </div>
+
+    <div class="example-block">
+      <h3>田中正造・足尾銅山鉱毒事件(公害の原点として頻出)</h3>
+      <ul class="example-list">
+        <li><span class="ex-school">渋谷教育学園渋谷中</span><span class="ex-year">2016</span></li>
+        <li><span class="ex-school">大妻多摩中</span><span class="ex-year">2019</span></li>
+        <li><span class="ex-school">法政大学第二中</span><span class="ex-year">2020</span></li>
+        <li><span class="ex-school">昭和学院秀英中</span><span class="ex-year">2021</span></li>
+        <li><span class="ex-school">帝京大学中・世田谷学園中・フェリス女学院中・山脇学園中</span><span class="ex-year">2022</span></li>
+        <li><span class="ex-school">駒場東邦中・藤嶺学園藤沢中</span><span class="ex-year">2023</span></li>
+      </ul>
+      <p class="example-source">出典: <a href="https://ameblo.jp/tyuugaku-jyuken/entry-12852556702.html" target="_blank" rel="noopener">恋する中学受験</a></p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>見つからなかったもの:</strong> 「四大公害病」そのもの(水俣病・新潟水俣病・イタイイタイ病・四日市ぜんそく)や
+      「明治の三大改革」を特定の学校・年度で直接出題した実例は、今回の調査範囲では確認できなかった。
+      公害については、上記の田中正造・足尾銅山鉱毒事件という関連テーマの形で出題される方が実際には多い可能性がある。
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>調査の限界について</h2></div>
     <div class="caveat">
       <strong>正式な頻出度データは非公開のものが多い。</strong>
       サピックス・四谷大塚などが独自に集計している出題頻度ランキングは、検索範囲内では公開情報として見つからなかった。
@@ -608,7 +736,7 @@
   </section>
 
   <section style="margin-bottom: 0;">
-    <div class="section-head"><span class="section-num">06</span><h2>参考にした情報源</h2></div>
+    <div class="section-head"><span class="section-num">07</span><h2>参考にした情報源</h2></div>
     <ul class="sources">
       <li><a href="https://www.studyup.jp/contents/shakai/rekishi.html" target="_blank" rel="noopener">スタディアップ「中学受験 歴史まとめ」</a></li>
       <li><a href="https://www.studyup.jp/search/hensachi/under50.html" target="_blank" rel="noopener">スタディアップ「基礎固め向け教材」</a></li>
@@ -617,6 +745,10 @@
       <li><a href="https://mondaistock.com/rekishi-goku/" target="_blank" rel="noopener">Mondai Stock「歴史の重要語句一覧」</a></li>
       <li><a href="https://www.chugakujuken.com/koushi_blog/kume/21827.html" target="_blank" rel="noopener">中学受験プロ講師ブログ「三大○○」まとめ</a></li>
       <li><a href="https://ameblo.jp/baycube/entry-12787806994.html" target="_blank" rel="noopener">四大公害病の覚え方</a></li>
+      <li><a href="https://ameblo.jp/tyuugaku-jyuken/entry-12758086764.html" target="_blank" rel="noopener">恋する中学受験「江戸の三大改革 過去問まとめ」</a></li>
+      <li><a href="https://ameblo.jp/tyuugaku-jyuken/entry-12928886784.html" target="_blank" rel="noopener">恋する中学受験「2025年度 元寇 出題まとめ」</a></li>
+      <li><a href="https://ameblo.jp/tyuugaku-jyuken/entry-12928612289.html" target="_blank" rel="noopener">恋する中学受験「2025年度 鎌倉新仏教 出題まとめ」</a></li>
+      <li><a href="https://ameblo.jp/tyuugaku-jyuken/entry-12852556702.html" target="_blank" rel="noopener">恋する中学受験「田中正造・足尾銅山鉱毒事件 出題まとめ」</a></li>
       <li><a href="https://real-juku.jp/genroku-kasei/" target="_blank" rel="noopener">元禄文化と化政文化の違い</a></li>
       <li><a href="https://real-juku.jp/kamakura-1185/" target="_blank" rel="noopener">鎌倉幕府成立年 1185年変更の解説</a></li>
       <li><a href="https://shihan-sankousho.com/jr/j-sh/year-number" target="_blank" rel="noopener">最低限覚えるべき歴史の重要年号</a></li>
