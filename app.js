@@ -4,12 +4,20 @@
 
   const screens = {
     home: document.getElementById("screen-home"),
+    randomSetup: document.getElementById("screen-random-setup"),
     quiz: document.getElementById("screen-quiz"),
     result: document.getElementById("screen-result"),
   };
 
   const subjectTabsEl = document.getElementById("subject-tabs");
   const eraListEl = document.getElementById("era-list");
+  const btnOpenRandom = document.getElementById("btn-open-random");
+  const btnRandomBack = document.getElementById("btn-random-back");
+  const unitChecklistEl = document.getElementById("unit-checklist");
+  const countButtonsEl = document.getElementById("count-buttons");
+  const btnSelectAll = document.getElementById("btn-select-all");
+  const btnSelectNone = document.getElementById("btn-select-none");
+  const btnStartRandom = document.getElementById("btn-start-random");
   const quizTitleEl = document.getElementById("quiz-title");
   const progressEl = document.getElementById("progress");
   const questionTextEl = document.getElementById("question-text");
@@ -23,6 +31,7 @@
   const btnHome = document.getElementById("btn-home");
 
   let currentSubject = SUBJECTS.find((s) => s.data.length > 0) || SUBJECTS[0];
+  let selectedCount = 10;
 
   let state = {
     era: null,
@@ -31,6 +40,7 @@
     correctCount: 0,
     wrongList: [],
     answered: false,
+    isRandom: false,
   };
 
   function loadBestScores() {
@@ -117,8 +127,85 @@
       correctCount: 0,
       wrongList: [],
       answered: false,
+      isRandom: false,
     };
     quizTitleEl.textContent = `${currentSubject.label} / ${era.title}`;
+    showScreen("quiz");
+    renderQuestion();
+  }
+
+  // --- ランダム出題 ---
+
+  function renderRandomSetup() {
+    unitChecklistEl.innerHTML = "";
+    currentSubject.data.forEach((era) => {
+      const label = document.createElement("label");
+      label.className = "unit-check-item";
+      label.innerHTML = `
+        <input type="checkbox" value="${era.id}" checked />
+        <span>${era.title}</span>
+        <span class="unit-check-count">${era.questions.length}問</span>
+      `;
+      unitChecklistEl.appendChild(label);
+    });
+
+    countButtonsEl.innerHTML = "";
+    [10, 20, "all"].forEach((c) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "count-btn" + (c === selectedCount ? " active" : "");
+      btn.textContent = c === "all" ? "全問" : `${c}問`;
+      btn.addEventListener("click", () => {
+        selectedCount = c;
+        Array.from(countButtonsEl.children).forEach((b) =>
+          b.classList.remove("active")
+        );
+        btn.classList.add("active");
+      });
+      countButtonsEl.appendChild(btn);
+    });
+  }
+
+  function getCheckedEraIds() {
+    return Array.from(
+      unitChecklistEl.querySelectorAll("input[type=checkbox]:checked")
+    ).map((el) => el.value);
+  }
+
+  function startRandomQuiz() {
+    const checkedIds = getCheckedEraIds();
+    const pool = [];
+    currentSubject.data
+      .filter((era) => checkedIds.includes(era.id))
+      .forEach((era) => {
+        era.questions.forEach((q) => pool.push(q));
+      });
+
+    if (pool.length === 0) return;
+
+    const shuffledPool = shuffle(pool);
+    const count =
+      selectedCount === "all"
+        ? shuffledPool.length
+        : Math.min(selectedCount, shuffledPool.length);
+    const picked = shuffledPool.slice(0, count);
+
+    const virtualEra = {
+      id: "random-" + Date.now(),
+      title: "🎲 ランダムミックス",
+      questions: picked,
+    };
+
+    state = {
+      era: virtualEra,
+      order: picked.map((_, i) => i),
+      index: 0,
+      correctCount: 0,
+      wrongList: [],
+      answered: false,
+      isRandom: true,
+    };
+    quizTitleEl.textContent = `${currentSubject.label} / 🎲 ランダム(${picked.length}問)`;
     showScreen("quiz");
     renderQuestion();
   }
@@ -182,7 +269,9 @@
   function finishQuiz() {
     const total = state.order.length;
     const score = state.correctCount;
-    saveBestScore(currentSubject.id, state.era.id, score, total);
+    if (!state.isRandom) {
+      saveBestScore(currentSubject.id, state.era.id, score, total);
+    }
 
     resultSummaryEl.textContent = `${score} / ${total} 問正解`;
     resultWrongEl.innerHTML = "";
@@ -216,7 +305,30 @@
     renderEraList();
     showScreen("home");
   });
-  btnRetry.addEventListener("click", () => startQuiz(state.era));
+  btnRetry.addEventListener("click", () => {
+    if (state.isRandom) {
+      startRandomQuiz();
+    } else {
+      startQuiz(state.era);
+    }
+  });
+
+  btnOpenRandom.addEventListener("click", () => {
+    renderRandomSetup();
+    showScreen("randomSetup");
+  });
+  btnRandomBack.addEventListener("click", () => showScreen("home"));
+  btnSelectAll.addEventListener("click", () => {
+    unitChecklistEl
+      .querySelectorAll("input[type=checkbox]")
+      .forEach((el) => (el.checked = true));
+  });
+  btnSelectNone.addEventListener("click", () => {
+    unitChecklistEl
+      .querySelectorAll("input[type=checkbox]")
+      .forEach((el) => (el.checked = false));
+  });
+  btnStartRandom.addEventListener("click", startRandomQuiz);
 
   renderSubjectTabs();
   renderEraList();

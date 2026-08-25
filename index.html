@@ -29,7 +29,25 @@
       </p>
     </section>
     <div id="subject-tabs" class="subject-tabs"></div>
+    <button id="btn-open-random" class="random-entry">🎲 ランダム出題で練習する</button>
     <div id="era-list" class="era-grid"></div>
+  </main>
+
+  <main id="screen-random-setup" class="screen hidden">
+    <div class="quiz-topbar">
+      <button id="btn-random-back" class="btn-text">← 単元を選び直す</button>
+    </div>
+    <h2 class="quiz-title">🎲 ランダム出題の範囲を選ぶ</h2>
+    <div class="random-setup-box">
+      <div class="random-setup-row">
+        <button id="btn-select-all" class="btn-text">全て選択</button>
+        <button id="btn-select-none" class="btn-text">全て解除</button>
+      </div>
+      <div id="unit-checklist" class="unit-checklist"></div>
+      <p class="random-setup-label">出題数</p>
+      <div id="count-buttons" class="count-buttons"></div>
+      <button id="btn-start-random" class="btn-primary">この条件で始める</button>
+    </div>
   </main>
 
   <main id="screen-quiz" class="screen hidden">
@@ -51,8 +69,8 @@
     <p id="result-summary" class="result-summary"></p>
     <div id="result-wrong" class="result-wrong"></div>
     <div class="result-actions">
-      <button id="btn-retry" class="btn-primary">同じ時代をもう一度</button>
-      <button id="btn-home" class="btn-secondary">時代選択にもどる</button>
+      <button id="btn-retry" class="btn-primary">もう一度</button>
+      <button id="btn-home" class="btn-secondary">単元選択にもどる</button>
     </div>
   </main>
 
