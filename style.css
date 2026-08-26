@@ -354,3 +354,22 @@ body {
 .result-wrong-item .rw-a { color: var(--correct); }
 
 .result-actions { margin-top: 20px; }
+
+/* --- Visitor footer --- */
+.visitor-footer {
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+
+.visitor-footer img {
+  height: 20px;
+  vertical-align: middle;
+}
+
+.visit-count-message {
+  margin: 8px 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

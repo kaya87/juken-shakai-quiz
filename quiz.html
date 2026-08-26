@@ -77,11 +77,32 @@
     </div>
   </main>
 
+  <footer class="visitor-footer">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=kaya87.juken-shakai-quiz.quiz" alt="訪問者数バッジ">
+    <p id="visit-count-message" class="visit-count-message"></p>
+  </footer>
+
 </div>
 <script src="history-questions.js"></script>
 <script src="geography-questions.js"></script>
 <script src="civics-questions.js"></script>
 <script src="subjects.js"></script>
 <script src="app.js"></script>
+<script>
+  (function () {
+    var el = document.getElementById('visit-count-message');
+    if (!el) return;
+    try {
+      var key = 'jsq-visit-count';
+      var count = parseInt(localStorage.getItem(key) || '0', 10) + 1;
+      localStorage.setItem(key, String(count));
+      el.textContent = count === 1
+        ? 'このブラウザでは、はじめての訪問です。ようこそ！'
+        : 'このブラウザでは ' + count + ' 回目の訪問です。';
+    } catch (e) {
+      // localStorageが使えない環境(プライベートモード等)では何も表示しない
+    }
+  })();
+</script>
 </body>
 </html>
