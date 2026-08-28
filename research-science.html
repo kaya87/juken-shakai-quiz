@@ -426,6 +426,43 @@
   }
 
   .site-nav a:hover { text-decoration: underline; }
+
+  /* --- subject tabs --- */
+  .subject-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .subject-tab {
+    flex: 1;
+    padding: 11px 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-muted);
+    font-family: "Shippori Mincho", serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+  }
+
+  .subject-tab.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+  }
+
+  .subject-tab:hover:not(.active) {
+    border-color: var(--primary-soft);
+    color: var(--text);
+  }
+
+  @media (min-width: 720px) {
+    .subject-tabs { margin-bottom: 56px; }
+    .subject-tab { font-size: 1.02rem; padding: 13px 8px; }
+  }
 </style>
 </head>
 <body>
@@ -443,6 +480,7 @@
       「<a href="https://kaya87.github.io/juken-shakai-quiz/" style="color:var(--primary)">理科・社会クイズ</a>」の
       理科の問題設計にあたり、生物・地学・化学・物理の4分野それぞれについて、
       どの用語・テーマが実際の入試で重視されているかをWeb調査した結果をまとめた。
+      社会と同じく、分野ごとにタブを切り替えて確認できる。
     </p>
     <div class="meta-row">
       <span><strong>調査日</strong> 2026-08-25</span>
@@ -454,16 +492,23 @@
     </p>
   </header>
 
-  <div id="subject-science-standalone">
+  <div class="subject-tabs" id="research-subject-tabs">
+    <button type="button" class="subject-tab active" data-subject="bio">生物</button>
+    <button type="button" class="subject-tab" data-subject="earth">地学</button>
+    <button type="button" class="subject-tab" data-subject="chem">化学</button>
+    <button type="button" class="subject-tab" data-subject="phys">物理</button>
+  </div>
+
+  <div id="subject-bio">
 
   <section>
-    <div class="section-head"><span class="section-num">01</span><h2>分野別 最重要キーワード</h2></div>
-    <p class="section-note">理科は歴史のような通史の流れがないため、地理の単元別キーワードと同じ形式で、生物・地学・化学・物理の4分野に分けて、各分野で必ず押さえるべき単元・用語をまとめた。</p>
+    <div class="section-head"><span class="section-num">01</span><h2>単元別 最重要キーワード</h2></div>
+    <p class="section-note">生物分野で必ず押さえるべき単元・用語をまとめた。</p>
 
     <div class="timeline">
 
       <div class="era">
-        <div class="era-range">生物分野</div>
+        <div class="era-range">植物</div>
         <div class="era-title">植物のつくり</div>
         <div class="term-row">
           <span class="term">根・茎・葉のつくり</span><span class="term">光合成(材料=水・二酸化炭素・光/生成物=でんぷん・酸素)</span><span class="term">蒸散</span><span class="term">道管・師管</span>
@@ -471,7 +516,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">生物分野</div>
+        <div class="era-range">植物</div>
         <div class="era-title">種子・発芽</div>
         <div class="term-row">
           <span class="term">発芽の3条件(水・空気・適温)</span><span class="term">双子葉類/単子葉類</span>
@@ -479,7 +524,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">生物分野</div>
+        <div class="era-range">動物</div>
         <div class="era-title">動物のなかま</div>
         <div class="term-row">
           <span class="term">セキツイ動物5分類(魚類・両生類・ハチュウ類・鳥類・ホニュウ類)</span><span class="term">無セキツイ動物</span><span class="term">完全変態/不完全変態</span>
@@ -487,7 +532,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">生物分野</div>
+        <div class="era-range">動物</div>
         <div class="era-title">人体</div>
         <div class="term-row">
           <span class="term">消化器官と消化酵素(だ液=アミラーゼ、胃液=ペプシン等)</span><span class="term">呼吸</span><span class="term">血液循環(心臓の4部屋)</span>
@@ -495,15 +540,140 @@
       </div>
 
       <div class="era">
-        <div class="era-range">生物分野</div>
+        <div class="era-range">生態系</div>
         <div class="era-title">生態系・食物連鎖</div>
         <div class="term-row">
           <span class="term">生態系・食物連鎖</span>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語</h2></div>
+    <p class="section-note">生物分野でまず固めるべき基礎用語。</p>
+    <div class="basics-panel">
+      <div class="basics-grid">
+        <span class="term">光合成の材料と生成物</span>
+        <span class="term">発芽の3条件</span>
+        <span class="term">セキツイ動物5分類</span>
+        <span class="term">消化酵素(だ液=アミラーゼ)</span>
+        <span class="term">完全変態・不完全変態</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>セットで問われる頻出テーマ</h2></div>
+    <p class="section-note">単発の用語よりも、いくつかをまとめて覚えさせる出題が定番になっているテーマ。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>光合成セット</h3>
+        <p>材料(水・二酸化炭素・光)⇔生成物(でんぷん・酸素)、呼吸との対比</p>
+      </div>
+      <div class="set-card">
+        <h3>セキツイ動物5分類のセット表</h3>
+        <p>5分類と呼吸法・体温・子の生まれ方をセットで整理する。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>計算・記述問題の頻出パターン</h2></div>
+    <p class="section-note">生物分野は他の3分野と異なり計算問題の比重は小さく、観察結果の理由を説明させる記述問題や、実験手順の正誤を判断させる問題が中心とされる。</p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>実際の出題例(関東・直近3年)</h2></div>
+
+    <div class="example-block">
+      <h3>東京</h3>
+      <ul>
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">2025</span><span class="ex-desc">生態系と食物連鎖を問う大問</span></li>
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">クモと昆虫の分類・グラフ読み取り問題</span></li>
+        <li><span class="ex-school">桜蔭中学校</span><span class="ex-year">2026</span><span class="ex-desc">モンシロチョウの紫外線反射・交尾行動の考察問題</span></li>
+        <li><span class="ex-school">海城中学校</span><span class="ex-year">2025</span><span class="ex-desc">アリとアリマキ・アリヅカコオロギの共生関係</span></li>
+        <li><span class="ex-school">豊島岡女子学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">動物の群れの形成と行動メカニズム</span></li>
+        <li><span class="ex-school">かえつ有明中学校</span><span class="ex-year">2025</span><span class="ex-desc">インゲンマメの発芽条件に関する実験考察</span></li>
+        <li><span class="ex-school">東京女学館中学校</span><span class="ex-year">2016〜2025</span><span class="ex-desc">10年間の分野別出題回数集計で生物が最多の11回</span></li>
+        <li><span class="ex-school">成城中学校</span><span class="ex-year">傾向</span><span class="ex-desc">アリの行動やクマの生態のグラフ読み取りなど長文考察型が特徴</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、sacacell.jp、note.com(chuju_no_oya、tanabe_2024)等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>神奈川</h3>
+      <ul>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">2025</span><span class="ex-desc">心臓と血液循環(心室の容積と内圧のグラフ読み取り、やや難)</span></li>
+        <li><span class="ex-school">慶應義塾普通部</span><span class="ex-year">2025</span><span class="ex-desc">イネの栽培と特性</span></li>
+        <li><span class="ex-school">横浜共立学園</span><span class="ex-year">2024</span><span class="ex-desc">生物と環境の一体性・人体のつくり・メダカの生態・生態系の崩壊</span></li>
+        <li><span class="ex-school">逗子開成中学校</span><span class="ex-year">傾向</span><span class="ex-desc">鳥類の特徴・森林のでき方・光合成・人体が頻出</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、sacacell.jp、hitotsubashi.net等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>埼玉</h3>
+      <ul>
+        <li><span class="ex-school">立教新座中学校</span><span class="ex-year">2024</span><span class="ex-desc">呼吸のモデル実験</span></li>
+        <li><span class="ex-school">立教新座中学校</span><span class="ex-year">2025</span><span class="ex-desc">チゴガニの観察</span></li>
+        <li><span class="ex-school">大宮開成中学校</span><span class="ex-year">2026</span><span class="ex-desc">生き物の調査(標識再捕法)</span></li>
+        <li><span class="ex-school">星野学園中学校</span><span class="ex-year">2026</span><span class="ex-desc">昆虫の分類</span></li>
+        <li><span class="ex-school">開智中学校</span><span class="ex-year">2025</span><span class="ex-desc">コオロギなど生物の習性に関する標準的な問題</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、note.com(tanabe_2024、chuju_no_oya)等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>千葉</h3>
+      <ul>
+        <li><span class="ex-school">渋谷教育学園幕張中学校</span><span class="ex-year">2026</span><span class="ex-desc">トマトの光合成・転流・分配を文章読解で量的に判断</span></li>
+        <li><span class="ex-school">市川中学校</span><span class="ex-year">2026</span><span class="ex-desc">メダカの特徴判定と食物連鎖(生態系の栄養関係)</span></li>
+        <li><span class="ex-school">東邦大学付属東邦中学校</span><span class="ex-year">2025</span><span class="ex-desc">開花時期の季節差と日当たりが植物生育に与える影響の読解</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">2025</span><span class="ex-desc">メダカの産卵条件・雌雄判別・実験分析</span></li>
+        <li><span class="ex-school">麗澤中学校</span><span class="ex-year">2025</span><span class="ex-desc">花のつくりと開花メカニズム</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">2025</span><span class="ex-desc">カエルの生態と森林環境税を絡めた時事融合問題</span></li>
+        <li><span class="ex-school">専修大学松戸中学校</span><span class="ex-year">2025</span><span class="ex-desc">ヒトの呼吸・肺の血液循環と酸素取込量の計算</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>調査できなかった範囲:</strong> 中堅〜標準校(埼玉栄・西武学園文理・大妻嵐山・浦和実業学園・関東学院六浦・東海大相模・湘南学園・清泉女学院・千葉明徳・八千代松陰・志学館等)については、4分野均等出題という傾向情報は得られたが、生物分野に絞った具体的な出題内容までは確認できなかった。
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>調査の限界について</h2></div>
+    <div class="caveat">
+      <strong>塾の内部教材は非公開情報が多い。</strong>
+      サピックス・日能研の内部教材(頻出ランキング等)は非公開情報が多く、Web検索では公式の頻出用語ランキングページそのものは発見できませんでした。市販の参考書サイトの目次情報を代替根拠としています。
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">07</span><h2>参考にした情報源</h2></div>
+    <ul class="sources">
+      <li><a href="https://katekyo.mynavi.jp/juken/8524" target="_blank" rel="noopener">マイナビ家庭教師「中学受験理科は生物・地学・化学・物理の4分野」</a></li>
+      <li><a href="https://www.zkai.co.jp/exam-navi/el/el-method/cl-21-01/" target="_blank" rel="noopener">Z会「中学受験理科の勉強法」</a></li>
+      <li><a href="https://yattoke.com/page-1801/" target="_blank" rel="noopener">やっとけ!「理科の重要項目まとめ一覧」</a></li>
+      <li><a href="https://note.com/shiseikatsu_dx/n/nd499eddcb758" target="_blank" rel="noopener">note「理科 単元別勉強法」</a></li>
+    </ul>
+  </section>
+
+  </div>
+
+  <div id="subject-earth" style="display:none;">
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>単元別 最重要キーワード</h2></div>
+    <p class="section-note">地学分野で必ず押さえるべき単元・用語をまとめた。</p>
+
+    <div class="timeline">
+
       <div class="era">
-        <div class="era-range">地学分野</div>
+        <div class="era-range">気象</div>
         <div class="era-title">天気</div>
         <div class="term-row">
           <span class="term">雲の種類</span><span class="term">前線(温暖前線・寒冷前線)</span><span class="term">日本の四季と気団</span><span class="term">湿度計算</span>
@@ -511,7 +681,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">地学分野</div>
+        <div class="era-range">地質</div>
         <div class="era-title">地層と岩石</div>
         <div class="term-row">
           <span class="term">堆積岩・火成岩・変成岩</span><span class="term">しゅう曲・断層</span><span class="term">化石(示準化石・示相化石)</span>
@@ -519,7 +689,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">地学分野</div>
+        <div class="era-range">地質</div>
         <div class="era-title">地震</div>
         <div class="term-row">
           <span class="term">初期微動・主要動</span><span class="term">P波・S波</span><span class="term">震度とマグニチュード</span>
@@ -527,15 +697,149 @@
       </div>
 
       <div class="era">
-        <div class="era-range">地学分野</div>
+        <div class="era-range">天文</div>
         <div class="era-title">天体</div>
         <div class="term-row">
           <span class="term">太陽の日周運動・年周運動</span><span class="term">月の満ち欠け</span><span class="term">季節の星座</span><span class="term">地球の自転・公転</span>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語</h2></div>
+    <p class="section-note">地学分野でまず固めるべき基礎用語。</p>
+    <div class="basics-panel">
+      <div class="basics-grid">
+        <span class="term">雲の種類と天気の変化</span>
+        <span class="term">前線の種類</span>
+        <span class="term">地震のP波・S波</span>
+        <span class="term">月の満ち欠けの順番</span>
+        <span class="term">季節の代表的な星座</span>
+        <span class="term">示準化石・示相化石</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>セットで問われる頻出テーマ</h2></div>
+    <p class="section-note">単発の用語よりも、いくつかをまとめて覚えさせる出題が定番になっているテーマ。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>季節と星座の対応</h3>
+        <p>夏の大三角、冬の大三角など。</p>
+      </div>
+      <div class="set-card">
+        <h3>地震のP波・S波と初期微動・主要動</h3>
+        <p>P波・S波の到達順序と初期微動・主要動をセットで理解する。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>計算問題の頻出パターン</h2></div>
+    <p class="section-note">地学分野は生物ほど計算問題が少ないが、湿度や地震の到達時間を求める計算は頻出とされる。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>湿度計算</h3>
+        <p>乾湿計の示度差から湿度表を使って求める計算。</p>
+      </div>
+      <div class="set-card">
+        <h3>地震の初期微動継続時間</h3>
+        <p>P波・S波の速さの差から震源からの距離を求める計算。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>実際の出題例(関東・直近3年)</h2></div>
+
+    <div class="example-block">
+      <h3>東京</h3>
+      <ul>
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">2025</span><span class="ex-desc">「素数ゼミ」を題材にした周期性・気候変動を問う大問</span></li>
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">気象・時差・H3ロケットを絡めた知識・読み取り問題</span></li>
+        <li><span class="ex-school">桜蔭中学校</span><span class="ex-year">2026</span><span class="ex-desc">地球と月の自転・公転周期の計算問題</span></li>
+        <li><span class="ex-school">海城中学校</span><span class="ex-year">2025</span><span class="ex-desc">京都市周辺の扇状地形成と気候特性</span></li>
+        <li><span class="ex-school">海城中学校</span><span class="ex-year">傾向</span><span class="ex-desc">直近2年連続で地図読み取り問題が出題</span></li>
+        <li><span class="ex-school">攻玉社中学校</span><span class="ex-year">傾向</span><span class="ex-desc">火山の噴火・地震・地層</span></li>
+        <li><span class="ex-school">豊島岡女子学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">奄美大島の自然環境・進化・天体観測を絡めた大問</span></li>
+        <li><span class="ex-school">桐朋中学校</span><span class="ex-year">傾向</span><span class="ex-desc">天体(星・太陽の動き・月の満ち欠け)、プレートと火山、台風と自然災害、川の流れの働きが頻出</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、sacacell.jp、note.com(chuju_no_oya)等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>神奈川</h3>
+      <ul>
+        <li><span class="ex-school">聖光学院</span><span class="ex-year">2025</span><span class="ex-desc">星座・宇宙分野の大問</span></li>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">2025</span><span class="ex-desc">星の明るさと天体観測(星座早見・南半球の星座)</span></li>
+        <li><span class="ex-school">慶應義塾普通部</span><span class="ex-year">2025</span><span class="ex-desc">暑さ指数など気象に関する出題</span></li>
+        <li><span class="ex-school">サレジオ学院</span><span class="ex-year">傾向</span><span class="ex-desc">異常気象・大地震・惑星探査など時事融合、地震波到達時刻や地球の大きさの計算</span></li>
+        <li><span class="ex-school">鎌倉学園</span><span class="ex-year">傾向</span><span class="ex-desc">気象・天体(他校より独自色が強い出題)</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、sacacell.jp、hitotsubashi.net等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>埼玉</h3>
+      <ul>
+        <li><span class="ex-school">開智未来中学校</span><span class="ex-year">傾向</span><span class="ex-desc">地震・地球の大きさ・地層・天体・星座早見盤が頻出</span></li>
+        <li><span class="ex-school">星野学園中学校</span><span class="ex-year">2026</span><span class="ex-desc">天体観測と月の満ち欠け</span></li>
+        <li><span class="ex-school">大宮開成中学校</span><span class="ex-year">2026</span><span class="ex-desc">地層(堆積と火成岩)</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、複数の中学受験対策ブログの集約情報</p>
+    </div>
+
+    <div class="example-block">
+      <h3>千葉</h3>
+      <ul>
+        <li><span class="ex-school">渋谷教育学園幕張中学校</span><span class="ex-year">2026</span><span class="ex-desc">皆既月食を題材に相似比と公転速度から時間を計算</span></li>
+        <li><span class="ex-school">市川中学校</span><span class="ex-year">2026</span><span class="ex-desc">琉球石灰岩層の地層形成・地殻変動・資源利用</span></li>
+        <li><span class="ex-school">東邦大学付属東邦中学校</span><span class="ex-year">2025</span><span class="ex-desc">実際の火山噴火(2024年)を題材にした時事的な火山災害・火山ガス問題</span></li>
+        <li><span class="ex-school">東邦大学付属東邦中学校</span><span class="ex-year">2025</span><span class="ex-desc">川の流域での岩石の大きさ変化と地形スケッチ読解</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">2025</span><span class="ex-desc">太陽系惑星の配置・金星の見え方・公転周期計算</span></li>
+        <li><span class="ex-school">専修大学松戸中学校</span><span class="ex-year">2025</span><span class="ex-desc">太陽の動きから昼間時間・南中時刻で季節と緯度経度を判断</span></li>
+        <li><span class="ex-school">麗澤中学校</span><span class="ex-year">2025</span><span class="ex-desc">プレートと地震発生メカニズム、小惑星探査機を題材にした問題</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>調査できなかった範囲:</strong> 中堅〜標準校については、4分野均等出題という傾向情報は得られたが、地学分野に絞った具体的な出題内容までは確認できなかった。
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>調査の限界について</h2></div>
+    <div class="caveat">
+      <strong>塾の内部教材は非公開情報が多い。</strong>
+      サピックス・日能研の内部教材(頻出ランキング等)は非公開情報が多く、Web検索では公式の頻出用語ランキングページそのものは発見できませんでした。市販の参考書サイトの目次情報を代替根拠としています。
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">07</span><h2>参考にした情報源</h2></div>
+    <ul class="sources">
+      <li><a href="https://katekyo.mynavi.jp/juken/8524" target="_blank" rel="noopener">マイナビ家庭教師「中学受験理科は生物・地学・化学・物理の4分野」</a></li>
+      <li><a href="https://yattoke.com/page-1801/" target="_blank" rel="noopener">やっとけ!「理科の重要項目まとめ一覧」</a></li>
+      <li><a href="https://note.com/shiseikatsu_dx/n/nd499eddcb758" target="_blank" rel="noopener">note「理科 単元別勉強法」</a></li>
+    </ul>
+  </section>
+
+  </div>
+
+  <div id="subject-chem" style="display:none;">
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>単元別 最重要キーワード</h2></div>
+    <p class="section-note">化学分野で必ず押さえるべき単元・用語をまとめた。</p>
+
+    <div class="timeline">
+
       <div class="era">
-        <div class="era-range">化学分野</div>
+        <div class="era-range">水溶液</div>
         <div class="era-title">水溶液の性質</div>
         <div class="term-row">
           <span class="term">酸性・中性・アルカリ性</span><span class="term">リトマス紙の変化</span><span class="term">代表的水溶液</span>
@@ -543,7 +847,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">化学分野</div>
+        <div class="era-range">気体</div>
         <div class="era-title">気体の性質</div>
         <div class="term-row">
           <span class="term">酸素・二酸化炭素・水素・アンモニアの発生方法・性質・集め方</span>
@@ -551,7 +855,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">化学分野</div>
+        <div class="era-range">燃焼</div>
         <div class="era-title">燃焼</div>
         <div class="term-row">
           <span class="term">燃焼の3条件</span><span class="term">酸化・還元</span>
@@ -559,15 +863,162 @@
       </div>
 
       <div class="era">
-        <div class="era-range">化学分野</div>
+        <div class="era-range">溶解</div>
         <div class="era-title">ものの溶け方</div>
         <div class="term-row">
           <span class="term">溶解度</span><span class="term">濃度計算</span><span class="term">再結晶</span><span class="term">中和反応</span>
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語</h2></div>
+    <p class="section-note">化学分野でまず固めるべき基礎用語。</p>
+    <div class="basics-panel">
+      <div class="basics-grid">
+        <span class="term">酸性・中性・アルカリ性とリトマス紙の変化</span>
+        <span class="term">代表的な気体の性質(酸素・二酸化炭素・水素・アンモニア)</span>
+        <span class="term">燃焼の3条件</span>
+        <span class="term">溶解度の基本</span>
+        <span class="term">中和反応の基本</span>
+        <span class="term">金属の共通の性質</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">03</span><h2>セットで問われる頻出テーマ</h2></div>
+    <p class="section-note">単発の用語よりも、いくつかをまとめて覚えさせる出題が定番になっているテーマ。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>水溶液の液性セット</h3>
+        <p>酸性/中性/アルカリ性 × リトマス紙の色変化</p>
+      </div>
+      <div class="set-card">
+        <h3>気体の発生・性質・集め方の3点セット</h3>
+        <p>例: 二酸化炭素=石灰石+塩酸/石灰水を白く濁らせる/水上・下方置換</p>
+      </div>
+      <div class="set-card">
+        <h3>金属・非金属の性質の違い</h3>
+        <p>金属と非金属の性質の違いをセットで整理する。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">04</span><h2>計算問題の頻出パターン</h2></div>
+    <p class="section-note">理科は暗記中心の他科目と異なり、計算問題が独自の比重を占める。化学分野では濃度・溶解度・中和の3パターンが頻出とされる。</p>
+    <div class="set-grid">
+      <div class="set-card">
+        <h3>濃度・溶解度計算</h3>
+        <p>「水100gあたり」を基準にした比例計算。</p>
+      </div>
+      <div class="set-card">
+        <h3>中和計算</h3>
+        <p>過不足なく中和する体積比。</p>
+      </div>
+    </div>
+    <p class="section-note" style="margin-top:18px;">
+      <strong>共通点:</strong> いずれも「絶対量」ではなく「比・比例」で解く問題が中心という共通点がある。
+    </p>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">05</span><h2>実際の出題例(関東・直近3年)</h2></div>
+
+    <div class="example-block">
+      <h3>東京</h3>
+      <ul>
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">2025</span><span class="ex-desc">水の循環を切り口に原子・稲妻の由来などを問う大問</span></li>
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">食塩と砂糖の判別実験(選択・計算・記述)</span></li>
+        <li><span class="ex-school">桜蔭中学校</span><span class="ex-year">2026</span><span class="ex-desc">大気汚染を題材にpH・指示薬・酸性雨を問う大問</span></li>
+        <li><span class="ex-school">女子学院中学校</span><span class="ex-year">傾向</span><span class="ex-desc">時間軸グラフを用いた気体発生問題が頻出</span></li>
+        <li><span class="ex-school">海城中学校</span><span class="ex-year">2025</span><span class="ex-desc">メタン・プロパンの燃焼反応と気体発生</span></li>
+        <li><span class="ex-school">豊島岡女子学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">金属の酸化・還元反応</span></li>
+        <li><span class="ex-school">攻玉社中学校</span><span class="ex-year">傾向</span><span class="ex-desc">ろうそくの燃焼</span></li>
+        <li><span class="ex-school">武蔵中学校</span><span class="ex-year">2024</span><span class="ex-desc">従来少なかった化学の計算問題が出題</span></li>
+        <li><span class="ex-school">かえつ有明中学校</span><span class="ex-year">2024</span><span class="ex-desc">炭酸カルシウムと塩酸の反応の比例関係読み取り、BTB液の色変化</span></li>
+        <li><span class="ex-school">共立女子中学校</span><span class="ex-year">傾向</span><span class="ex-desc">計算問題(10問程度)が化学・物理分野に集中し差がつきやすい</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、note.com(chuju_no_oya、tanabe_2024)、chuju-katekyo.com等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>神奈川</h3>
+      <ul>
+        <li><span class="ex-school">栄光学園</span><span class="ex-year">傾向</span><span class="ex-desc">「水溶液の性質」が頻出分野の一つ、合格者平均得点率72.6%</span></li>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">2025</span><span class="ex-desc">ロウソクの燃焼と化学変化</span></li>
+        <li><span class="ex-school">慶應義塾普通部</span><span class="ex-year">2025</span><span class="ex-desc">気体発生(二酸化炭素)の計算問題</span></li>
+        <li><span class="ex-school">横浜共立学園</span><span class="ex-year">2024</span><span class="ex-desc">酸性雨、ものの溶け方、水溶液の性質</span></li>
+        <li><span class="ex-school">洗足学園</span><span class="ex-year">傾向</span><span class="ex-desc">化学分野の難度が高く、見慣れない実験設定からの考察問題が頻出</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、sacacell.jp、note.com(tanabe_2024)、chugaku-juken.com、hachiojisakura.com等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>埼玉</h3>
+      <ul>
+        <li><span class="ex-school">立教新座中学校</span><span class="ex-year">2023</span><span class="ex-desc">マグネシウムの燃焼実験(記述・計算中心)</span></li>
+        <li><span class="ex-school">立教新座中学校</span><span class="ex-year">2025</span><span class="ex-desc">中和滴定の計算</span></li>
+        <li><span class="ex-school">埼玉栄中学校</span><span class="ex-year">2025〜2026</span><span class="ex-desc">酸塩基反応と溶液、化学反応と溶液の性質</span></li>
+        <li><span class="ex-school">星野学園中学校</span><span class="ex-year">2026</span><span class="ex-desc">飽和水溶液の性質と計算</span></li>
+        <li><span class="ex-school">西武学園文理中学校</span><span class="ex-year">2025</span><span class="ex-desc">アルコールの燃焼に関する出題</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、note.com(tanabe_2024、chuju_no_oya)等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>千葉</h3>
+      <ul>
+        <li><span class="ex-school">渋谷教育学園幕張中学校</span><span class="ex-year">2026</span><span class="ex-desc">クエン酸と重曹の反応で量的関係・発熱吸熱を表とグラフから読解</span></li>
+        <li><span class="ex-school">市川中学校</span><span class="ex-year">2026</span><span class="ex-desc">ジュースの濃縮・凍結・とけ方など相転移と物性変化</span></li>
+        <li><span class="ex-school">東邦大学付属東邦中学校</span><span class="ex-year">2025</span><span class="ex-desc">マグネシウムと銅の酸化反応の比例計算</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">2025</span><span class="ex-desc">水溶液の指示薬判別・溶解度計算・気体溶解性</span></li>
+        <li><span class="ex-school">麗澤中学校</span><span class="ex-year">2025</span><span class="ex-desc">ものの溶け方</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">2025</span><span class="ex-desc">銅の燃焼による質量変化と比の計算</span></li>
+        <li><span class="ex-school">専修大学松戸中学校</span><span class="ex-year">2025</span><span class="ex-desc">二酸化炭素の水への溶け方をグラフ化し比例関係を見出す</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>調査できなかった範囲:</strong> 中堅〜標準校については、4分野均等出題という傾向情報は得られたが、化学分野に絞った具体的な出題内容までは確認できなかった。
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>調査の限界について</h2></div>
+    <div class="caveat">
+      <strong>塾の内部教材は非公開情報が多い。</strong>
+      サピックス・日能研の内部教材(頻出ランキング等)は非公開情報が多く、Web検索では公式の頻出用語ランキングページそのものは発見できませんでした。市販の参考書サイトの目次情報を代替根拠としています。
+    </div>
+  </section>
+
+  <section style="margin-bottom: 0;">
+    <div class="section-head"><span class="section-num">07</span><h2>参考にした情報源</h2></div>
+    <ul class="sources">
+      <li><a href="https://katekyo.mynavi.jp/juken/8524" target="_blank" rel="noopener">マイナビ家庭教師「中学受験理科は生物・地学・化学・物理の4分野」</a></li>
+      <li><a href="https://www.studyup.jp/contents/rika/suiyoeki.html" target="_blank" rel="noopener">スタディアップ「水溶液の覚え方」</a></li>
+      <li><a href="https://www.ss-1.net/magazine/2024/10/solubility5.html" target="_blank" rel="noopener">サピックス5年生「溶解度」</a></li>
+      <li><a href="https://note.com/tsubasa_nntse/n/n975c5dca74de" target="_blank" rel="noopener">note「溶解度計算のパターン化」</a></li>
+      <li><a href="https://yattoke.com/page-1801/" target="_blank" rel="noopener">やっとけ!「理科の重要項目まとめ一覧」</a></li>
+    </ul>
+  </section>
+
+  </div>
+
+  <div id="subject-phys" style="display:none;">
+
+  <section>
+    <div class="section-head"><span class="section-num">01</span><h2>単元別 最重要キーワード</h2></div>
+    <p class="section-note">物理分野で必ず押さえるべき単元・用語をまとめた。</p>
+
+    <div class="timeline">
+
       <div class="era">
-        <div class="era-range">物理分野</div>
+        <div class="era-range">力学</div>
         <div class="era-title">てこ</div>
         <div class="term-row">
           <span class="term">支点・力点・作用点</span><span class="term">モーメント(つり合いの計算)</span>
@@ -575,7 +1026,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">物理分野</div>
+        <div class="era-range">力学</div>
         <div class="era-title">滑車・輪軸</div>
         <div class="term-row">
           <span class="term">定滑車・動滑車</span><span class="term">輪軸の比計算</span>
@@ -583,7 +1034,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">物理分野</div>
+        <div class="era-range">力学</div>
         <div class="era-title">ばね</div>
         <div class="term-row">
           <span class="term">フックの法則</span><span class="term">ばねの伸びと力の比例関係</span>
@@ -591,7 +1042,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">物理分野</div>
+        <div class="era-range">電気</div>
         <div class="era-title">電気回路</div>
         <div class="term-row">
           <span class="term">直列・並列</span><span class="term">豆電球の明るさ</span>
@@ -599,7 +1050,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">物理分野</div>
+        <div class="era-range">波動</div>
         <div class="era-title">光と音</div>
         <div class="term-row">
           <span class="term">反射・屈折・凸レンズ</span><span class="term">音の速さ・振動数</span>
@@ -607,7 +1058,7 @@
       </div>
 
       <div class="era">
-        <div class="era-range">物理分野</div>
+        <div class="era-range">力学</div>
         <div class="era-title">浮力</div>
         <div class="term-row">
           <span class="term">アルキメデスの原理</span>
@@ -618,27 +1069,10 @@
   </section>
 
   <section>
-    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語 トップ24</h2></div>
-    <p class="section-note">複数の調査結果で共通していたのは、まず用語の意味・条件・分類といった基礎知識を固めることが、計算問題や記述問題の土台になるという指摘。まずこの24項目の徹底が優先。</p>
+    <div class="section-head"><span class="section-num">02</span><h2>まず外せない基礎用語</h2></div>
+    <p class="section-note">物理分野でまず固めるべき基礎用語。</p>
     <div class="basics-panel">
       <div class="basics-grid">
-        <span class="term">光合成の材料と生成物</span>
-        <span class="term">発芽の3条件</span>
-        <span class="term">セキツイ動物5分類</span>
-        <span class="term">消化酵素(だ液=アミラーゼ)</span>
-        <span class="term">完全変態・不完全変態</span>
-        <span class="term">雲の種類と天気の変化</span>
-        <span class="term">前線の種類</span>
-        <span class="term">地震のP波・S波</span>
-        <span class="term">月の満ち欠けの順番</span>
-        <span class="term">季節の代表的な星座</span>
-        <span class="term">示準化石・示相化石</span>
-        <span class="term">酸性・中性・アルカリ性とリトマス紙の変化</span>
-        <span class="term">代表的な気体の性質(酸素・二酸化炭素・水素・アンモニア)</span>
-        <span class="term">燃焼の3条件</span>
-        <span class="term">溶解度の基本</span>
-        <span class="term">中和反応の基本</span>
-        <span class="term">金属の共通の性質</span>
         <span class="term">支点・力点・作用点</span>
         <span class="term">てこのつり合い(モーメント)</span>
         <span class="term">ばねの伸びと力の比例</span>
@@ -658,40 +1092,12 @@
         <h3>てこの3点セット</h3>
         <p>支点・力点・作用点</p>
       </div>
-      <div class="set-card">
-        <h3>光合成セット</h3>
-        <p>材料(水・二酸化炭素・光)⇔生成物(でんぷん・酸素)、呼吸との対比</p>
-      </div>
-      <div class="set-card">
-        <h3>水溶液の液性セット</h3>
-        <p>酸性/中性/アルカリ性 × リトマス紙の色変化</p>
-      </div>
-      <div class="set-card">
-        <h3>気体の発生・性質・集め方の3点セット</h3>
-        <p>例: 二酸化炭素=石灰石+塩酸/石灰水を白く濁らせる/水上・下方置換</p>
-      </div>
-      <div class="set-card">
-        <h3>金属・非金属の性質の違い</h3>
-        <p>金属と非金属の性質の違いをセットで整理する。</p>
-      </div>
-      <div class="set-card">
-        <h3>季節と星座の対応</h3>
-        <p>夏の大三角、冬の大三角など。</p>
-      </div>
-      <div class="set-card">
-        <h3>地震のP波・S波と初期微動・主要動</h3>
-        <p>P波・S波の到達順序と初期微動・主要動をセットで理解する。</p>
-      </div>
-      <div class="set-card">
-        <h3>セキツイ動物5分類のセット表</h3>
-        <p>5分類と呼吸法・体温・子の生まれ方をセットで整理する。</p>
-      </div>
     </div>
   </section>
 
   <section>
     <div class="section-head"><span class="section-num">04</span><h2>計算問題の頻出パターン</h2></div>
-    <p class="section-note">理科は暗記中心の他科目と異なり、計算問題が独自の比重を占める。市販教材や塾の解説記事で頻出とされる計算パターンをまとめた。</p>
+    <p class="section-note">理科は暗記中心の他科目と異なり、計算問題が独自の比重を占める。物理分野は特に計算問題の比重が大きいとされる。</p>
     <div class="set-grid">
       <div class="set-card">
         <h3>てこ・輪軸・滑車のつり合い計算</h3>
@@ -706,14 +1112,6 @@
         <p>直列は電流一定・抵抗の和、並列は電圧一定・抵抗の逆数の和。</p>
       </div>
       <div class="set-card">
-        <h3>濃度・溶解度計算</h3>
-        <p>「水100gあたり」を基準にした比例計算。</p>
-      </div>
-      <div class="set-card">
-        <h3>中和計算</h3>
-        <p>過不足なく中和する体積比。</p>
-      </div>
-      <div class="set-card">
         <h3>浮力・密度の計算</h3>
         <p>浮力・密度の計算。</p>
       </div>
@@ -724,28 +1122,78 @@
   </section>
 
   <section>
-    <div class="section-head"><span class="section-num">05</span><h2>調査の限界について</h2></div>
+    <div class="section-head"><span class="section-num">05</span><h2>実際の出題例(関東・直近3年)</h2></div>
+
+    <div class="example-block">
+      <h3>東京</h3>
+      <ul>
+        <li><span class="ex-school">麻布中学校</span><span class="ex-year">2025</span><span class="ex-desc">LED(発光ダイオード)の実験を題材にした大問</span></li>
+        <li><span class="ex-school">開成中学校</span><span class="ex-year">2025</span><span class="ex-desc">ばねの性質に関する表読み取り・計算問題</span></li>
+        <li><span class="ex-school">桜蔭中学校</span><span class="ex-year">2026</span><span class="ex-desc">光の反射角・光速計算を扱う大問</span></li>
+        <li><span class="ex-school">海城中学校</span><span class="ex-year">2025</span><span class="ex-desc">電熱線の並列・直列接続における抵抗値計算</span></li>
+        <li><span class="ex-school">豊島岡女子学園中学校</span><span class="ex-year">2025</span><span class="ex-desc">電熱線の温度上昇に関する計算問題</span></li>
+        <li><span class="ex-school">攻玉社中学校</span><span class="ex-year">傾向</span><span class="ex-desc">光電池・手回し発電機・LED・回路</span></li>
+        <li><span class="ex-school">山脇学園中学校</span><span class="ex-year">2023〜2024</span><span class="ex-desc">光・気球、熱・光電池と2年連続で物理2題出題</span></li>
+        <li><span class="ex-school">青稜中学校</span><span class="ex-year">2023〜2025</span><span class="ex-desc">回路の電流計算→てこのモーメント計算→電磁誘導の計算問題と3年連続で物理の計算問題が出題</span></li>
+        <li><span class="ex-school">昭和学院秀英中学校</span><span class="ex-year">2023〜2025</span><span class="ex-desc">仕事率計算→棒のつり合い計算→てこの原理の計算と3年連続で物理の計算問題が頻出</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、sacacell.jp、note.com(chuju_no_oya、tanabe_2024)等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>神奈川</h3>
+      <ul>
+        <li><span class="ex-school">聖光学院</span><span class="ex-year">2025</span><span class="ex-desc">力学・浮力・電流・音を扱う大問</span></li>
+        <li><span class="ex-school">浅野中学校</span><span class="ex-year">2025</span><span class="ex-desc">落下運動と重力加速度</span></li>
+        <li><span class="ex-school">慶應義塾普通部</span><span class="ex-year">2025</span><span class="ex-desc">ばね・てこに関する計算問題</span></li>
+        <li><span class="ex-school">鎌倉学園</span><span class="ex-year">傾向</span><span class="ex-desc">光・浮力・滑車が頻出</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、sacacell.jp、tomonokai.net等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>埼玉</h3>
+      <ul>
+        <li><span class="ex-school">栄東中学校</span><span class="ex-year">2023〜2025</span><span class="ex-desc">力のつり合いとてこ→力のつり合いと仕事→力のつり合いと重心と3年連続で力学が頻出</span></li>
+        <li><span class="ex-school">埼玉栄中学校</span><span class="ex-year">2024〜2026</span><span class="ex-desc">音の反響・鏡の性質→エレベーターと力学→光と目の仕組み</span></li>
+        <li><span class="ex-school">星野学園中学校</span><span class="ex-year">2026</span><span class="ex-desc">力のつり合い(てこ・滑車)</span></li>
+        <li><span class="ex-school">開智中学校</span><span class="ex-year">2025</span><span class="ex-desc">密度や力のつり合いなど、やや難度の高い計算問題</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、note.com(tanabe_2024、chuju_no_oya)等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="example-block">
+      <h3>千葉</h3>
+      <ul>
+        <li><span class="ex-school">東海大学付属浦安高等学校中等部</span><span class="ex-year">2023〜2025</span><span class="ex-desc">ばねの伸びの実験(2023)→振り子の実験(2025)</span></li>
+        <li><span class="ex-school">麗澤中学校</span><span class="ex-year">2025</span><span class="ex-desc">物体の運動、斜面転がり実験による運動距離と力の関係</span></li>
+        <li><span class="ex-school">国府台女子学院中学部</span><span class="ex-year">2025</span><span class="ex-desc">直列・並列回路の電流と豆電球の明るさ</span></li>
+        <li><span class="ex-school">専修大学松戸中学校</span><span class="ex-year">2025</span><span class="ex-desc">重心が中央でない棒のつり合い計算</span></li>
+      </ul>
+      <p class="example-source">出典: waseda-eg.com、note.com(tanabe_2024)等の過去問分析記事を総合</p>
+    </div>
+
+    <div class="not-found-note">
+      <strong>調査できなかった範囲:</strong> 中堅〜標準校については、4分野均等出題という傾向情報は得られたが、物理分野に絞った具体的な出題内容までは確認できなかった。
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head"><span class="section-num">06</span><h2>調査の限界について</h2></div>
     <div class="caveat">
       <strong>塾の内部教材は非公開情報が多い。</strong>
-      サピックス・日能研の内部教材(頻出ランキング等)は非公開情報が多く、Web検索では公式の頻出用語ランキングページそのものは発見できませんでした。市販の参考書サイトの目次情報を代替根拠としています。また「入試傾向が思考型に変化している」という点や偏差値帯ごとの正確な出題深度の差は、個別サイトの主観的評価を含むため要確認としています。
-      なお、歴史・地理・公民で行ったような関東の学校名・年度別の実際の出題例の調査は、理科については今回は未実施です。
+      サピックス・日能研の内部教材(頻出ランキング等)は非公開情報が多く、Web検索では公式の頻出用語ランキングページそのものは発見できませんでした。市販の参考書サイトの目次情報を代替根拠としています。
     </div>
   </section>
 
   <section style="margin-bottom: 0;">
-    <div class="section-head"><span class="section-num">06</span><h2>参考にした情報源</h2></div>
+    <div class="section-head"><span class="section-num">07</span><h2>参考にした情報源</h2></div>
     <ul class="sources">
       <li><a href="https://katekyo.mynavi.jp/juken/8524" target="_blank" rel="noopener">マイナビ家庭教師「中学受験理科は生物・地学・化学・物理の4分野」</a></li>
-      <li><a href="https://www.zkai.co.jp/exam-navi/el/el-method/cl-21-01/" target="_blank" rel="noopener">Z会「中学受験理科の勉強法」</a></li>
-      <li><a href="https://www.studyup.jp/contents/rika/suiyoeki.html" target="_blank" rel="noopener">スタディアップ「水溶液の覚え方」</a></li>
       <li><a href="https://www.studyup.jp/contents/rika/teko.html" target="_blank" rel="noopener">スタディアップ「てこの原理」</a></li>
       <li><a href="https://www.studyup.jp/contents/rika/denryuu.html" target="_blank" rel="noopener">スタディアップ「電流を徹底解説」</a></li>
       <li><a href="https://www.ss-1.net/magazine/2024/06/teko5.html" target="_blank" rel="noopener">サピックス5年生「てこ」</a></li>
-      <li><a href="https://www.ss-1.net/magazine/2024/10/solubility5.html" target="_blank" rel="noopener">サピックス5年生「溶解度」</a></li>
-      <li><a href="https://note.com/tsubasa_nntse/n/n975c5dca74de" target="_blank" rel="noopener">note「溶解度計算のパターン化」</a></li>
-      <li><a href="https://yattoke.com/page-1801/" target="_blank" rel="noopener">やっとけ!「理科の重要項目まとめ一覧」</a></li>
       <li><a href="https://yuzupa.com/conductivity/" target="_blank" rel="noopener">ゆずぱ「電気を通すもの」</a></li>
-      <li><a href="https://note.com/shiseikatsu_dx/n/nd499eddcb758" target="_blank" rel="noopener">note「理科 単元別勉強法」</a></li>
     </ul>
   </section>
 
@@ -756,6 +1204,35 @@
   </footer>
 
 </div>
+
+<script>
+(function () {
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".subject-tab"));
+  var panels = {
+    bio: document.getElementById("subject-bio"),
+    earth: document.getElementById("subject-earth"),
+    chem: document.getElementById("subject-chem"),
+    phys: document.getElementById("subject-phys")
+  };
+
+  function showSubject(id) {
+    Object.keys(panels).forEach(function (key) {
+      if (panels[key]) panels[key].style.display = key === id ? "" : "none";
+    });
+    tabs.forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-subject") === id);
+    });
+  }
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      showSubject(btn.getAttribute("data-subject"));
+    });
+  });
+
+  showSubject("bio");
+})();
+</script>
 
 </body>
 </html>
