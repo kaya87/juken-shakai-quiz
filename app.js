@@ -20,6 +20,7 @@
   const btnStartRandom = document.getElementById("btn-start-random");
   const quizTitleEl = document.getElementById("quiz-title");
   const progressEl = document.getElementById("progress");
+  const questionDataEl = document.getElementById("question-data");
   const questionTextEl = document.getElementById("question-text");
   const choicesEl = document.getElementById("choices");
   const feedbackEl = document.getElementById("feedback");
@@ -216,6 +217,13 @@
     const q = era.questions[qIndex];
 
     progressEl.textContent = `${state.index + 1} / ${state.order.length}問`;
+    if (q.data) {
+      questionDataEl.innerHTML = q.data;
+      questionDataEl.classList.remove("hidden");
+    } else {
+      questionDataEl.innerHTML = "";
+      questionDataEl.classList.add("hidden");
+    }
     questionTextEl.textContent = q.q;
     feedbackEl.classList.add("hidden");
     btnNext.classList.add("hidden");
@@ -289,6 +297,7 @@
         const item = document.createElement("div");
         item.className = "result-wrong-item";
         item.innerHTML = `
+          ${q.data ? `<div class="rw-data">${q.data}</div>` : ""}
           <div class="rw-q">${q.q}</div>
           <div class="rw-a">正解: ${q.choices[q.answer]}</div>
         `;
