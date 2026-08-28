@@ -331,6 +331,21 @@ body {
 .feedback.wrong { color: var(--wrong); }
 .feedback.hidden { display: none; }
 
+.feedback-explain {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.rw-explain {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
 .btn-primary, .btn-secondary {
   display: block;
   width: 100%;

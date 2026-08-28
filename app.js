@@ -247,18 +247,22 @@
     buttons.forEach((b) => (b.disabled = true));
 
     const isCorrect = selectedIndex === q.answer;
+    let mainText;
     if (isCorrect) {
       btnEl.classList.add("correct");
       state.correctCount++;
-      feedbackEl.textContent = "正解！";
+      mainText = "正解！";
       feedbackEl.className = "feedback correct";
     } else {
       btnEl.classList.add("wrong");
       buttons[q.answer].classList.add("correct");
-      feedbackEl.textContent = `不正解… 正解は「${q.choices[q.answer]}」`;
+      mainText = `不正解… 正解は「${q.choices[q.answer]}」`;
       feedbackEl.className = "feedback wrong";
       state.wrongList.push(q);
     }
+    feedbackEl.innerHTML = q.explain
+      ? `<div>${mainText}</div><div class="feedback-explain">${q.explain}</div>`
+      : mainText;
     feedbackEl.classList.remove("hidden");
     btnNext.classList.remove("hidden");
     btnNext.textContent =
@@ -300,6 +304,7 @@
           ${q.data ? `<div class="rw-data">${q.data}</div>` : ""}
           <div class="rw-q">${q.q}</div>
           <div class="rw-a">正解: ${q.choices[q.answer]}</div>
+          ${q.explain ? `<div class="rw-explain">${q.explain}</div>` : ""}
         `;
         resultWrongEl.appendChild(item);
       });
