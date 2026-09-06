@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kaya87.github.io/juken-shakai-quiz/sitemap.xml

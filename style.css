@@ -252,6 +252,7 @@ body {
   line-height: 1.5;
   margin: 0 0 18px;
   font-weight: 600;
+  white-space: pre-line;
 }
 
 .question-data {
@@ -330,6 +331,80 @@ body {
 .feedback.correct { color: var(--correct); }
 .feedback.wrong { color: var(--wrong); }
 .feedback.hidden { display: none; }
+
+/* --- 記述式(正解を見る → 自己採点) --- */
+.reveal-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px dashed var(--primary);
+  background: #fff;
+  color: var(--primary-dark);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.answer-box {
+  background: #fbfaf7;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.answer-label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.answer-text {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--correct);
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.answer-explain {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.grade-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.grade-btn {
+  flex: 1;
+  padding: 13px 8px;
+  border-radius: 10px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: #fff;
+}
+
+.grade-ok {
+  border: 1px solid var(--correct);
+  color: var(--correct);
+}
+
+.grade-ng {
+  border: 1px solid var(--wrong);
+  color: var(--wrong);
+}
+
+.grade-btn:disabled { opacity: 0.45; cursor: default; }
 
 .feedback-explain {
   margin-top: 6px;

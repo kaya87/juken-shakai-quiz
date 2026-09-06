@@ -230,6 +230,12 @@
     state.answered = false;
 
     choicesEl.innerHTML = "";
+
+    if (q.answerText !== undefined) {
+      renderFreeAnswer(q);
+      return;
+    }
+
     q.choices.forEach((choiceText, i) => {
       const btn = document.createElement("button");
       btn.className = "choice-btn";
@@ -237,6 +243,70 @@
       btn.addEventListener("click", () => selectAnswer(i, q, btn));
       choicesEl.appendChild(btn);
     });
+  }
+
+  // 記述式(国語の漢字・四字熟語など): 正解を見てから自己採点する
+  function renderFreeAnswer(q) {
+    const revealBtn = document.createElement("button");
+    revealBtn.className = "reveal-btn";
+    revealBtn.textContent = "正解を見る";
+    revealBtn.addEventListener("click", () => revealAnswer(q));
+    choicesEl.appendChild(revealBtn);
+  }
+
+  function revealAnswer(q) {
+    if (state.answered) return;
+
+    choicesEl.innerHTML = "";
+
+    const answerBox = document.createElement("div");
+    answerBox.className = "answer-box";
+    answerBox.innerHTML = `
+      <div class="answer-label">正解</div>
+      <div class="answer-text">${q.answerText}</div>
+      ${q.explain ? `<div class="answer-explain">${q.explain}</div>` : ""}
+    `;
+    choicesEl.appendChild(answerBox);
+
+    const gradeRow = document.createElement("div");
+    gradeRow.className = "grade-row";
+
+    const okBtn = document.createElement("button");
+    okBtn.className = "grade-btn grade-ok";
+    okBtn.textContent = "○ できた";
+    okBtn.addEventListener("click", () => gradeSelf(true, q));
+
+    const ngBtn = document.createElement("button");
+    ngBtn.className = "grade-btn grade-ng";
+    ngBtn.textContent = "× できなかった";
+    ngBtn.addEventListener("click", () => gradeSelf(false, q));
+
+    gradeRow.appendChild(okBtn);
+    gradeRow.appendChild(ngBtn);
+    choicesEl.appendChild(gradeRow);
+  }
+
+  function gradeSelf(isCorrect, q) {
+    if (state.answered) return;
+    state.answered = true;
+
+    Array.from(choicesEl.querySelectorAll(".grade-btn")).forEach(
+      (b) => (b.disabled = true)
+    );
+
+    if (isCorrect) {
+      state.correctCount++;
+      feedbackEl.textContent = "よくできました！";
+      feedbackEl.className = "feedback correct";
+    } else {
+      state.wrongList.push(q);
+      feedbackEl.textContent = "復習リストに入れておきます";
+      feedbackEl.className = "feedback wrong";
+    }
+    feedbackEl.classList.remove("hidden");
+    btnNext.classList.remove("hidden");
+    btnNext.textContent =
+      state.index + 1 < state.order.length ? "次の問題へ" : "結果を見る";
   }
 
   function selectAnswer(selectedIndex, q, btnEl) {
@@ -303,7 +373,7 @@
         item.innerHTML = `
           ${q.data ? `<div class="rw-data">${q.data}</div>` : ""}
           <div class="rw-q">${q.q}</div>
-          <div class="rw-a">正解: ${q.choices[q.answer]}</div>
+          <div class="rw-a">正解: ${q.answerText !== undefined ? q.answerText : q.choices[q.answer]}</div>
           ${q.explain ? `<div class="rw-explain">${q.explain}</div>` : ""}
         `;
         resultWrongEl.appendChild(item);
